@@ -1,0 +1,170 @@
+.main {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+    justify-content: center;
+    padding: 10px;
+
+}
+
+.intro {
+    width: min(100%, 1100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 0px 20px;
+}
+
+.intro-media {
+    flex: 0 0 auto;
+}
+
+.intro-media img {
+    display: block;
+    width: clamp(160px, 22vw, 240px);
+    height: auto;
+}
+
+.intro-text {
+    flex: 1 1 0; 
+    min-width: 0;
+    max-width: none;
+}
+
+.intro-text .title {
+    margin: 0 0 10px 0;
+    font-size: 22px;
+}
+
+.intro-text p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 21px;
+}
+
+.intro-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cta-wrap {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+}
+
+.big-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 24px solid transparent;
+    border-image: url("images/button.png") 7 fill stretch;
+
+    padding: 0 12px;
+    text-decoration: none;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.button-content {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    min-width: 0;
+
+    color: white;
+    font-size: clamp(12px, 1.4vw, 20px);
+    line-height: 1;
+}
+
+.button-label {
+    white-space: nowrap;
+}
+
+.button-icon {
+    width: 1.5em;
+    height: 1.5em;
+    flex: 0 0 auto;
+}
+
+.side-note {
+    margin-top: 8px;
+    text-align: center;
+    line-height: 1.3;
+    font-size: 19px;
+
+    width: 0;
+    min-width: 100%;
+    white-space: normal;
+}
+
+@media (max-width: 800px) {
+    .intro {
+        width: min(100%, 600px);
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro-media,
+    .intro-text,
+    .intro-side {
+        width: 100%;
+        max-width: none;
+        flex: none;
+    }
+
+    .intro-media img {
+        width: min(70vw, 280px);
+        margin: 0 auto;
+    }
+
+    .intro-text {
+        min-width: 0;
+    }
+
+    .intro-side {
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .cta-wrap {
+        display: flex;
+        width: 100%;
+        align-items: center;
+    }
+
+    .big-button {
+        display: flex;
+        width: 100%;
+        max-width: 100%;
+        justify-content: center;
+
+        padding: 0 clamp(4px, 1.5vw, 12px);
+    }
+
+    .button-content {
+        font-size: clamp(9px, 4vw, 20px);
+        gap: clamp(4px, 1.5vw, 10px);
+        min-width: 0;
+    }
+
+    .button-icon {
+        width: 1em;
+        height: 1em;
+        flex: 0 0 auto;
+    }
+
+    .side-note {
+        width: 100%;
+        min-width: 0;
+    }
+}
