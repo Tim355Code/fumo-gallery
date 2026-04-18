@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="background-styles.css">
         <link rel="stylesheet" href="stylesheets/intro-styles.css">
         <link rel="stylesheet" href="stylesheets/latest-styles.css">
-        <script type="text/javascript" src="scripts/homepage.js"></script>
+        <script type="text/javascript" src="scripts/homepage.js" ></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>FumoFumo Archives</title>
     </head>
@@ -25,50 +25,56 @@
                 </div>
 
                 <div class="items">
-                    <a href="#" class="item active">Home</a>
-                    <a href="#" class="item">Gallery</a>
-                    <a href="#" class="item">About</a>
+                    <a href="index.html" class="item active">Home</a>
+                    <a href="gallery.html" class="item">Gallery</a>
+                    <a href="about.html" class="item">About</a>
                 </div>
             </nav>
         </header>
         <div class="main">
             <div class="panel intro">
                 <div class="intro-media">
-                    <img src="images/fumos/reimu.png" alt="Large Reimu fumo">
+                    <div class="top-fumo-wrapper">
+                        <img src="images/fumos/reimu.png" alt="Large Reimu fumo" class="top-fumo">
+                    </div>
                 </div>
 
                 <div class="intro-text">
                     <h1 class="title">Fumo Fumos!!!</h1>
                     <p>
-                        Welcome to FumoFumos.com! We host a collection of free* to use fumo pixel art!
+                        Welcome to FumoFumos.com! <br>We host a collection of free* to use fumo pixel art!
                     </p>
                 </div>
 
                 <div class="intro-side">
                     <div class="cta-wrap">
-                        <a href="#" class="big-button">
+                        <a class="big-button" href="images/fumos/reimu.png" download>
                             <span class="button-content">
-                                <img src="images/download.png" alt="Download button" class="button-icon">
+                                <img src="images/ui/download.png" alt="Download button" class="button-icon">
                                 <span class="button-label">Download Full Pack</span>
                             </span>
                         </a>
-                        <p class="side-note">Invidual downloads are in gallery.</p>
+                        <p class="side-note">Individual downloads are in gallery.</p>
                     </div>
                 </div>
             </div>
             <div class="subtitle">
-                <p class="subtitle-content">Latest Additions</p> 
+                <p class="subtitle-content"><img src="images/ui/star.png" class="star">Latest Additions<img src="images/ui/star.png" class="star" id="rightstar"></p> 
                 <div class="subtitle-fill" aria-hidden="true"></div>
-                <a href="#" class="subtitle-link">View All<span class="subtitle-icon"></span></a>
+                <a href="gallery.html" class="subtitle-link">View All<span class="subtitle-icon"></span></a>
             </div>
             <div class="latest" id="latest-artworks">
-                <div class="panel frame">
+               <!-- <div class="panel frame">
                     <img src="images/fumos/reimu.png" alt="temp">
                     <p class="name">Cool thing</p>
                     <p class="date">Friday 17 April</p>
-                </div>
-                
+                </div> -->
             </div>
         </div>
+        <footer class="footer">
+            <img src="images/ui/heart.png">
+            <p>Made with Fumos</p>
+            <img src="images/ui/heart.png">
+        </footer>
     </body>
 </html>

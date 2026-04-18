@@ -20,17 +20,20 @@
 
 .frame img {
     width: 100%;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 .frame p {
     margin: 0;
+    padding: 0;
 }
 
 .frame .name {
     color: white;
-    font-family: 'Kongtext';
+    font-family: 'Pixelify-Sans';
     white-space: nowrap;
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
 
 .frame .date {
@@ -39,12 +42,16 @@
 
 .subtitle {
     display: flex;
-    width: min(87%, 900px);
+    width: min(87%, 920px);
     align-items: baseline;
     gap: 15px;
 }
 
 .subtitle-content {
+    justify-content: flex-start;
+    align-items:first baseline;
+    display: inline-flex;
+    gap: 10px;
     font-family: 'Pixelify-Sans';
     margin: 0;
     white-space: nowrap;
@@ -52,11 +59,20 @@
     color: white;
 }
 
+.subtitle-content img {
+    height: 20px;
+    transform: translateY(2px);
+}
+
+#rightstar {
+    display: none;
+}
+
 .subtitle-fill {
     overflow: hidden;
     white-space: nowrap;
     font-family: 'Lowres-Pixel';
-    color: rgb(205, 205, 205);
+    color: rgb(185, 185, 185);
     font-size: 24px;
     letter-spacing: 5px;
     transform: translateY(-1px);
@@ -80,7 +96,7 @@
     width: 16px;
     height: 16px;
 
-    background-image: url("../images/arrow.png");
+    background-image: url("../images/ui/arrow.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -90,7 +106,7 @@
     color: #62b7ff;
 }
 .subtitle-link:hover .subtitle-icon {
-    background-image: url("../images/arrow_highlight.png");
+    background-image: url("../images/ui/arrow_highlight.png");
 }
 
 .subtitle-icon {
@@ -118,6 +134,10 @@
 
     .subtitle-fill {
         display: none;
+    }
+
+    #rightstar {
+        display: inline;
     }
 }
 

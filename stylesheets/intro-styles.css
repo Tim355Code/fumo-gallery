@@ -8,7 +8,9 @@
     margin-top: 20px;
     justify-content: center;
     padding: 10px;
-    gap: 20px;
+    gap: 15px;
+    flex: 1;
+    justify-content: flex-start;
 }
 
 .intro {
@@ -22,6 +24,13 @@
 
 .intro-media {
     flex: 0 0 auto;
+}
+
+.top-fumo-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
 }
 
 .intro-media img {
@@ -67,7 +76,7 @@
     align-items: center;
 
     border: 22px solid transparent;
-    border-image: url("../images/button.png") 7 fill stretch;
+    border-image: url("../images/ui/button.png") 7 fill stretch;
 
     text-decoration: none;
     box-sizing: border-box;
@@ -98,7 +107,7 @@
 }
 
 .big-button:hover {
-    border-image: url("../images/button_highlight.png") 7 fill stretch;
+    border-image: url("../images/ui/button_highlight.png") 7 fill stretch;
 }
 
 .side-note {
@@ -153,11 +162,11 @@
         max-width: 100%;
         justify-content: center;
 
-        padding: 0 clamp(4px, 1.5vw, 12px);
+        padding: 0 clamp(0px, 1.5vw, 12px);
     }
 
     .button-content {
-        font-size: clamp(9px, 3.5vw, 20px);
+        font-size: clamp(9px, 3vw, 20px);
         gap: clamp(4px, 1.5vw, 10px);
         min-width: 0;
     }
@@ -172,4 +181,18 @@
         width: 100%;
         min-width: 0;
     }
+}
+
+.top-fumo-wrapper::after {
+    content: "";
+    background-image: url("../images/ui/notice.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    z-index: 100000;
+    left: 8px;
+    top: -13px;
 }

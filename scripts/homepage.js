@@ -3,6 +3,7 @@ function updateSubtitleFill() {
         const content = subtitle.querySelector('.subtitle-content');
         const fill = subtitle.querySelector('.subtitle-fill');
         const link = subtitle.querySelector('.subtitle-link');
+        const star = subtitle.querySelector('.star');
 
         if (!content || !fill) return;
 
@@ -16,7 +17,7 @@ function updateSubtitleFill() {
         if (link) {
             linkWidth = link.getBoundingClientRect().width;
         }
-
+        
         // 2 gaps: content<->fill and fill<->link
         const totalGapWidth = link ? gap * 2 : gap;
 
@@ -54,7 +55,7 @@ function updateSubtitleFill() {
 }
 
 async function loadArtworks() {
-    const response = await fetch('artworks.json');
+    const response = await fetch(`artworks.json?v=${Date.now()}`);
     const artworks = await response.json();
 
     artworks.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -80,12 +81,11 @@ async function loadArtworks() {
 function formatDate(dateStr) {
     const date = new Date(dateStr);
     return date.toLocaleDateString(undefined, {
-        weekday: 'long',
+        weekday: 'short',
         day: 'numeric',
         month: 'long'
     });
 }
-
 
 window.addEventListener('load', updateSubtitleFill);
 window.addEventListener('resize', updateSubtitleFill);
