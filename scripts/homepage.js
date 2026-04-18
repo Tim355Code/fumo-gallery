@@ -53,5 +53,41 @@ function updateSubtitleFill() {
     });
 }
 
+async function loadArtworks() {
+    const response = await fetch('artworks.json');
+    const artworks = await response.json();
+
+    artworks.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    const latest = artworks.slice(0, 4);
+
+    const container = document.getElementById('latest-artworks');
+
+    latest.forEach(item => {
+        const frame = document.createElement('div');
+        frame.className = 'panel frame';
+
+        frame.innerHTML = `
+            <img src="${item.image}" alt="${item.name}">
+            <p class="name">${item.name}</p>
+            <p class="date">${formatDate(item.date)}</p>
+        `;
+
+        container.appendChild(frame);
+    });
+}
+
+function formatDate(dateStr) {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString(undefined, {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long'
+    });
+}
+
+
 window.addEventListener('load', updateSubtitleFill);
 window.addEventListener('resize', updateSubtitleFill);
+
+loadArtworks();

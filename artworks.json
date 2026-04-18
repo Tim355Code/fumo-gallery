@@ -1,5 +1,17 @@
-{
+[
 	{
-        
+        "image": "images/fumos/reimu.png",
+        "name": "Reimu",
+        "date": "2025-08-08"
+    },
+    {
+        "image": "images/fumos/chimata.png",
+        "name": "Chimata",
+        "date": "2025-03-18"
+    },
+    {
+        "image": "images/fumos/yukari.png",
+        "name": "Yukari",
+        "date": "2025-03-17"
     }
-}
+]
