@@ -33,10 +33,13 @@ def main() -> None:
         print(f"No PNG files found in: {INPUT_DIR}")
         return
 
+    created_dirs: list[Path] = []
+
     for file_path in files:
         sprite_name = file_path.stem
         sprite_output_dir = OUTPUT_DIR / sprite_name
         sprite_output_dir.mkdir(parents=True, exist_ok=True)
+        created_dirs.append(sprite_output_dir)
 
         # Save original as 1x PNG
         with Image.open(file_path) as img:
@@ -48,14 +51,35 @@ def main() -> None:
                 output_path = sprite_output_dir / f"{sprite_name}_{scale}x.png"
                 upscaled.save(output_path)
 
-        # Create zip
+        # Create individual zip for this sprite directory
         zip_base = OUTPUT_DIR / sprite_name
         shutil.make_archive(str(zip_base), "zip", root_dir=OUTPUT_DIR, base_dir=sprite_name)
 
-        # Delete the unzipped folder
-        shutil.rmtree(sprite_output_dir)
-
         print(f"Processed and zipped: {file_path.name}")
+
+    # Create all.zip containing all sprite directories
+    all_temp_dir = OUTPUT_DIR / "_all_temp"
+    all_temp_dir.mkdir(parents=True, exist_ok=True)
+
+    try:
+        for sprite_dir in created_dirs:
+            shutil.copytree(sprite_dir, all_temp_dir / sprite_dir.name)
+
+        shutil.make_archive(
+            str(OUTPUT_DIR / "all"),
+            "zip",
+            root_dir=all_temp_dir,
+            base_dir="."
+        )
+        print("Created all.zip")
+    finally:
+        if all_temp_dir.exists():
+            shutil.rmtree(all_temp_dir)
+
+    # Delete the unzipped sprite folders
+    for sprite_dir in created_dirs:
+        if sprite_dir.exists():
+            shutil.rmtree(sprite_dir)
 
     print("Done.")
 
