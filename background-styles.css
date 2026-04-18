@@ -3,7 +3,13 @@
     src: url("./fonts/KongtextModified.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
-    size-adjust: 94%;
+}
+
+@font-face {
+    font-family: 'Lowres-Pixel';
+    src: url("./fonts/LowresPixel-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
@@ -11,26 +17,24 @@
     src: url("./fonts/PixelifySansModified.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
-    size-adjust: 90%;
 }
 
 * {
-    font-family: 'Kongtext', monospace;
+    font-family: 'Pixelify-Sans', monospace;
     box-sizing: border-box;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 p {
-    font-family: 'Pixelify-Sans';
+    font-family: 'Lowres-Pixel';
     color: rgb(205, 205, 205);
     font-size: 20px;
 }
 
-body {
-    -webkit-font-smoothing: none;
-    -moz-osx-font-smoothing: grayscale;
-    
+body {    
     margin: 0;
     background: rgb(20, 20, 22);
     min-height: 100vh;
@@ -95,6 +99,7 @@ body {
     text-decoration: none;
     color: white;
     position: relative;
+    font-size: 20px;
 }
 
 .item.active {
@@ -169,7 +174,7 @@ body {
 
 .panel {
     padding: 0;
-    border: 24px solid transparent;
+    border: 22px solid transparent;
     border-image-source: url("images/panel.png");
     border-image-slice: 7 fill;
     border-image-repeat: stretch;

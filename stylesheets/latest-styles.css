@@ -1,0 +1,133 @@
+.latest {
+    display: grid;
+    width: min(90%, 1000px);
+    gap: 25px 20px;
+
+    grid-template-columns: repeat(4, minmax(230px, 1fr));
+
+    justify-content: center;
+}
+.frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    min-width: 0;
+    font-size: clamp(10px, 1.6vw, 15px);
+}
+
+.frame img {
+    width: 100%;
+}
+
+.frame p {
+    margin: 0;
+}
+
+.frame .name {
+    color: white;
+    font-family: 'Kongtext';
+    white-space: nowrap;
+    font-size: 1.2em;
+}
+
+.frame .date {
+    font-size: 1.2em;
+}
+
+.subtitle {
+    display: flex;
+    width: min(87%, 900px);
+    align-items: baseline;
+    gap: 15px;
+}
+
+.subtitle-content {
+    font-family: 'Pixelify-Sans';
+    margin: 0;
+    white-space: nowrap;
+    font-size: 20px;
+    color: white;
+}
+
+.subtitle-fill {
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: 'Lowres-Pixel';
+    color: rgb(205, 205, 205);
+    font-size: 24px;
+    letter-spacing: 5px;
+    transform: translateY(-1px);
+    flex: 0 0 auto;
+}
+
+.subtitle-link {
+    display: inline-flex;
+    gap: 10px;
+    justify-content: space-between;
+    color: #d94a5b;
+    font-family: 'Pixelify-Sans';
+    margin: 0;
+    text-decoration: none;
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+.subtitle-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+
+    background-image: url("../images/arrow.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.subtitle-link:hover {
+    color: #62b7ff;
+}
+.subtitle-link:hover .subtitle-icon {
+    background-image: url("../images/arrow_highlight.png");
+}
+
+.subtitle-icon {
+    height: 15px;
+    margin: 0;
+    display: inline;
+}
+
+/* when 4 x 230px no longer fits comfortably, jump directly to 2 columns */
+@media (max-width: 980px) {
+    .latest {
+        width: min(90%, 720px);
+        grid-template-columns: repeat(2, minmax(230px, 1fr));
+    }
+
+    .frame {
+        font-size: clamp(10px, 2.5vw, 20px);
+    }
+
+    .subtitle {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .subtitle-fill {
+        display: none;
+    }
+}
+
+/* only for really tiny screens */
+@media (max-width: 520px) {
+    .latest {
+        grid-template-columns: 1fr;
+        width: 80%;
+    }
+    .frame {
+        font-size: clamp(10px, 4vw, 20px);
+    }
+}
