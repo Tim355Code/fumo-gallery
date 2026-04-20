@@ -32,6 +32,8 @@ p {
     font-family: 'Lowres-Pixel';
     color: rgb(185, 185, 185);
     font-size: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 body {    

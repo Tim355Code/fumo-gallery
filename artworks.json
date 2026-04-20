@@ -1,97 +1,116 @@
 [
 	{
         "image": "images/fumos_padded/reimu.png",
-        "name": "Reimu",
+        "name": "Reimu v2",
+        "character": "Reimu Hakurei",
         "date": "2025-08-08"
     },
     {
         "image": "images/fumos_padded/chimata.png",
         "name": "Chimata",
+        "character": "Chimata Tenkyuu",
         "date": "2025-03-18"
     },
     {
         "image": "images/fumos_padded/yukari.png",
         "name": "Yukari",
+        "character": "Yukari Yakumo",
         "date": "2025-03-17"
     },
     {
         "image": "images/fumos_padded/alice.png",
         "name": "Alice",
+        "character": "Alice Margatroid",
         "date": "2025-12-11"
     },
     {
         "image": "images/fumos_padded/meiling.png",
         "name": "Meiling",
+        "character": "Hong Meiling",
         "date": "2025-09-16"
     },
     {
         "image": "images/fumos_padded/yuyuko.png",
         "name": "Yuyuko",
+        "character": "Yuyuko Saigyouji",
         "date": "2025-08-19"
     },
     {
         "image": "images/fumos_padded/sanae.png",
         "name": "Sanae",
+        "character": "Sanae Kochiya",
         "date": "2024-12-11"
     },
     {
         "image": "images/fumos_padded/youmu.png",
         "name": "Youmu",
+        "character": "Youmu Konpaku",
         "date": "2024-12-10"
     },
     {
         "image": "images/fumos_padded/mokou.png",
         "name": "Mokou",
+        "character": "Fujiwara no Mokou",
         "date": "2024-12-09"
     },
     {
         "image": "images/fumos_padded/okuu.png",
         "name": "Utsuho",
+        "character": "Utsuho Reiuji ",
         "date": "2024-12-07"
     },
     {
-        "image": "images/fumos_padded/suwaka.png",
-        "name": "Suwaka",
+        "image": "images/fumos_padded/suwako.png",
+        "name": "Suwako",
+        "character": "Suwako Moriya",
         "date": "2024-12-06"
     },
     {
         "image": "images/fumos_padded/sakuya.png",
         "name": "Sakuya",
+        "character": "Sakuya Izayoi",
         "date": "2024-12-05"
     },
     {
         "image": "images/fumos_padded/remilia.png",
         "name": "Remilia",
+        "character": "Remilia Scarlet",
         "date": "2024-12-02"
     },
     {
         "image": "images/fumos_padded/flandre.png",
         "name": "Flandre",
+        "character": "Flandre Scarlet",
         "date": "2024-11-29"
     },
     {
         "image": "images/fumos_padded/satori.png",
         "name": "Satori",
+        "character": "Satori Komeiji",
         "date": "2024-12-01"
     },
     {
         "image": "images/fumos_padded/tewi.png",
         "name": "Tewi",
+        "character": "Tewi Inaba",
         "date": "2024-11-30"
     },
     {
         "image": "images/fumos_padded/koishi.png",
         "name": "Koishi",
+        "character": "Koishi Komeiji",
         "date": "2024-11-30"
     },
     {
         "image": "images/fumos_padded/reisen.png",
         "name": "Reisen",
+        "character": "Reisen Udongein Inaba",
         "date": "2024-11-29"
     },
     {
         "image": "images/fumos_padded/marisa.png",
         "name": "Marisa",
+        "character": "Marisa Kirisame",
         "date": "2024-11-27"
     }
 ]
