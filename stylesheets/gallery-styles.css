@@ -12,3 +12,43 @@
     flex: 1;
     justify-content: flex-start;
 }
+
+.line {
+    width: min(100%, 1100px);
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 0;
+
+    margin: 0;
+    color: white;
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+.left {
+    text-align: right;;
+}
+
+.label {
+    font-family: 'Kongtext';
+    flex: 0 0 auto;
+}
+
+.fill {
+    flex: 1 1 auto;
+    overflow: hidden;
+
+    color: rgb(185, 185, 185);
+    font-family: 'Pixelify-Sans';
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.heart {
+    height: 16px;
+    padding-right: 10px;
+    padding-left: 10px;
+}

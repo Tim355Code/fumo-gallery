@@ -55,7 +55,7 @@ function updateSubtitleFill() {
 }
 
 async function loadArtworks() {
-    const response = await fetch(`artworks.json?v=${Date.now()}`);
+    const response = await fetch(`artworks.json`);
     const artworks = await response.json();
 
     artworks.sort((a, b) => new Date(b.date) - new Date(a.date));

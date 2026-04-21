@@ -6,6 +6,9 @@
         <link rel="icon" type="image/x-icon" href="images/favicon.ico">
         <link rel="stylesheet" href="background-styles.css">
         <link rel="stylesheet" href="stylesheets/gallery-styles.css">
+        <link rel="stylesheet" href="stylesheets/search-styles.css">
+        <script type="text/javascript" src="scripts/decor.js" defer></script>
+        <script type="text/javascript" src="scripts/search.js" defer></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>FumoFumo Archives</title>
     </head>
@@ -31,7 +34,24 @@
         </header>
 
         <div class="main">
-            
+            <div class="search-wrapper">
+                <img src="images/ui/search.png" alt="" class="search-icon">
+                <input type="search" placeholder="Search..." class="search-input" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off">
+                <button class="clear-btn" type="button">x</button>
+
+                <div class="search-results">
+                    <button class="search-result" type="button">Reimu Hakurei</button>
+                    <button class="search-result" type="button">Marisa Kirisame</button>
+                    <button class="search-result" type="button">Sakuya Izayoi</button>
+                </div>
+            </div>
+            <div class="line">
+                <p class="title">
+                    <span class="fill left"></span>
+                    <span class="label"><img src="images/ui/heart.png" class="heart" alt="Heart icon">Gallery<img src="images/ui/heart.png" class="heart" alt="Heart icon"></span>
+                    <span class="fill right"></span>
+                </p>
+            </div>
         </div>
 
         <footer class="footer">
