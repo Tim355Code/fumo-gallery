@@ -55,26 +55,24 @@ function updateSubtitleFill() {
 }
 
 async function loadArtworks() {
-    const response = await fetch(`artworks.json`);
-    const artworks = await response.json();
+    loadAppData().then(artworks => {
+        artworks.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    artworks.sort((a, b) => new Date(b.date) - new Date(a.date));
+        const latest = artworks.slice(0, 4);
+        const container = document.getElementById('latest-artworks');
 
-    const latest = artworks.slice(0, 4);
+        latest.forEach(item => {
+            const frame = document.createElement('div');
+            frame.className = 'panel frame';
 
-    const container = document.getElementById('latest-artworks');
+            frame.innerHTML = `
+                <img src="${item.image}" alt="${item.name}">
+                <p class="name">${item.name}</p>
+                <p class="date">${formatDate(item.date)}</p>
+            `;
 
-    latest.forEach(item => {
-        const frame = document.createElement('div');
-        frame.className = 'panel frame';
-
-        frame.innerHTML = `
-            <img src="${item.image}" alt="${item.name}">
-            <p class="name">${item.name}</p>
-            <p class="date">${formatDate(item.date)}</p>
-        `;
-
-        container.appendChild(frame);
+            container.appendChild(frame);
+        });
     });
 }
 

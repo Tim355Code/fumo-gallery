@@ -14,7 +14,9 @@
 }
 
 .line {
-    width: min(100%, 1100px);
+    width: min(95%, 1200px);
+    margin: 0 auto;
+    white-space: nowrap;
 }
 
 .title {
@@ -51,4 +53,105 @@
     height: 16px;
     padding-right: 10px;
     padding-left: 10px;
+}
+
+.dash-line {
+    width: min(95%, 1200px);
+    margin: 6px auto 0 auto;
+    white-space: nowrap;
+}
+
+.dash-fill {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+
+    color: rgb(185, 185, 185);
+    font-family: 'Pixelify-Sans';
+    line-height: 1;
+}
+
+.nav-left, .nav-right {
+    height: 60px;
+    width: 60px;
+
+    background-image: url('../images/ui/large-arrow.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: contain;
+    cursor: pointer;
+
+    border: 16px solid transparent;
+    border-image-source: url("../images/ui/nav.png");
+    border-image-slice: 7 fill;
+    border-image-repeat: stretch;
+}
+
+.nav-left:hover, .nav-right:hover {
+    background-image: url('../images/ui/large-arrow_highlight.png');
+}
+
+.nav-right {
+    -webkit-transform: scale(-1, -1);
+    -moz-transform: scale(-1, -1);
+    -o-transform: scale(-1, -1);
+    transform: scale(-1, -1);
+}
+
+.gallery-container {
+    width: min(90%, 1100px);
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.gallery {
+    position: relative;
+    height: 400px;
+    width: 500px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #f6d365, #fda085);
+}
+
+.gallery-track {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    height: 100%;
+    transition: transform 0.45s ease;
+    will-change: transform;
+}
+
+.gallery-track {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    height: 100%;
+    transition: transform 0.45s ease;
+    will-change: transform;
+}
+
+.gallery-item {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.gallery-item img {
+    display: block;
+    width: auto;
+    height: 300px;
+    max-width: 100%;
+    object-fit: contain;
+    user-select: none;
+    pointer-events: none;
 }

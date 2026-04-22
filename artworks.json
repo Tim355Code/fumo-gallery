@@ -1,135 +1,173 @@
 [
-	{
-        "image": "images/fumos_padded/reimu.png",
-        "name": "Reimu v2",
-        "character": "Reimu Hakurei",
-        "download": "downloads/reimu.zip",
-        "date": "2025-08-08"
-    },
-    {
-        "image": "images/fumos_padded/chimata.png",
-        "name": "Chimata",
-        "character": "Chimata Tenkyuu",
-        "download": "downloads/chimata.zip",
-        "date": "2025-03-18"
-    },
-    {
-        "image": "images/fumos_padded/yukari.png",
-        "name": "Yukari",
-        "character": "Yukari Yakumo",
-        "download": "downloads/yukari.zip",
-        "date": "2025-03-17"
-    },
-    {
-        "image": "images/fumos_padded/alice.png",
-        "name": "Alice",
-        "character": "Alice Margatroid",
-        "download": "downloads/alice.zip",
-        "date": "2025-12-11"
-    },
-    {
-        "image": "images/fumos_padded/meiling.png",
-        "name": "Meiling",
-        "character": "Hong Meiling",
-        "download": "downloads/meiling.zip",
-        "date": "2025-09-16"
-    },
-    {
-        "image": "images/fumos_padded/yuyuko.png",
-        "name": "Yuyuko",
-        "character": "Yuyuko Saigyouji",
-        "download": "downloads/yuyuko.zip",
-        "date": "2025-08-19"
-    },
-    {
-        "image": "images/fumos_padded/sanae.png",
-        "name": "Sanae",
-        "character": "Sanae Kochiya",
-        "download": "downloads/sanae.zip",
-        "date": "2024-12-11"
-    },
-    {
-        "image": "images/fumos_padded/youmu.png",
-        "name": "Youmu",
-        "character": "Youmu Konpaku",
-        "download": "downloads/youmu.zip",
-        "date": "2024-12-10"
-    },
-    {
-        "image": "images/fumos_padded/mokou.png",
-        "name": "Mokou",
-        "character": "Fujiwara no Mokou",
-        "download": "downloads/mokou.zip",
-        "date": "2024-12-09"
-    },
-    {
-        "image": "images/fumos_padded/okuu.png",
-        "name": "Utsuho",
-        "character": "Utsuho Reiuji",
-        "download": "downloads/okuu.zip",
-        "date": "2024-12-07"
-    },
-    {
-        "image": "images/fumos_padded/suwako.png",
-        "name": "Suwako",
-        "character": "Suwako Moriya",
-        "download": "downloads/suwako.zip",
-        "date": "2024-12-06"
-    },
-    {
-        "image": "images/fumos_padded/sakuya.png",
-        "name": "Sakuya",
-        "character": "Sakuya Izayoi",
-        "download": "downloads/sakuya.zip",
-        "date": "2024-12-05"
-    },
-    {
-        "image": "images/fumos_padded/remilia.png",
-        "name": "Remilia",
-        "character": "Remilia Scarlet",
-        "download": "downloads/remilia.zip",
-        "date": "2024-12-02"
-    },
-    {
-        "image": "images/fumos_padded/flandre.png",
-        "name": "Flandre",
-        "character": "Flandre Scarlet",
-        "download": "downloads/flandre.zip",
-        "date": "2024-11-29"
-    },
-    {
-        "image": "images/fumos_padded/satori.png",
-        "name": "Satori",
-        "character": "Satori Komeiji",
-        "download": "downloads/satori.zip",
-        "date": "2024-12-01"
-    },
-    {
-        "image": "images/fumos_padded/tewi.png",
-        "name": "Tewi",
-        "character": "Tewi Inaba",
-        "download": "downloads/tewi.zip",
-        "date": "2024-11-30"
-    },
-    {
-        "image": "images/fumos_padded/koishi.png",
-        "name": "Koishi",
-        "character": "Koishi Komeiji",
-        "download": "downloads/koishi.zip",
-        "date": "2024-11-30"
-    },
-    {
-        "image": "images/fumos_padded/reisen.png",
-        "name": "Reisen",
-        "character": "Reisen Udongein Inaba",
-        "download": "downloads/reisen.zip",
-        "date": "2024-11-29"
-    },
-    {
-        "image": "images/fumos_padded/marisa.png",
-        "name": "Marisa",
-        "character": "Marisa Kirisame",
-        "download": "downloads/marisa.zip",
-        "date": "2024-11-27"
-    }
+  {
+    "image": "images/fumos_padded/reimu.png",
+    "name": "Reimu v2",
+    "character": "Reimu Hakurei",
+    "download": "downloads/reimu.zip",
+    "date": "2025-08-08",
+    "gradStart": "#d9b0b0",
+    "gradEnd": "#f3e3c7"
+  },
+  {
+    "image": "images/fumos_padded/chimata.png",
+    "name": "Chimata",
+    "character": "Chimata Tenkyuu",
+    "download": "downloads/chimata.zip",
+    "date": "2025-03-18",
+    "gradStart": "#c8c1df",
+    "gradEnd": "#e8d8c4"
+  },
+  {
+    "image": "images/fumos_padded/yukari.png",
+    "name": "Yukari",
+    "character": "Yukari Yakumo",
+    "download": "downloads/yukari.zip",
+    "date": "2025-03-17",
+    "gradStart": "#b9a7c9",
+    "gradEnd": "#ead9b8"
+  },
+  {
+    "image": "images/fumos_padded/alice.png",
+    "name": "Alice",
+    "character": "Alice Margatroid",
+    "download": "downloads/alice.zip",
+    "date": "2025-12-11",
+    "gradStart": "#9fb8d4",
+    "gradEnd": "#efe2c7"
+  },
+  {
+    "image": "images/fumos_padded/meiling.png",
+    "name": "Meiling",
+    "character": "Hong Meiling",
+    "download": "downloads/meiling.zip",
+    "date": "2025-09-16",
+    "gradStart": "#c89b95",
+    "gradEnd": "#d7d49c"
+  },
+  {
+    "image": "images/fumos_padded/yuyuko.png",
+    "name": "Yuyuko",
+    "character": "Yuyuko Saigyouji",
+    "download": "downloads/yuyuko.zip",
+    "date": "2025-08-19",
+    "gradStart": "#d7bfd9",
+    "gradEnd": "#f1dee6"
+  },
+  {
+    "image": "images/fumos_padded/sanae.png",
+    "name": "Sanae",
+    "character": "Sanae Kochiya",
+    "download": "downloads/sanae.zip",
+    "date": "2024-12-11",
+    "gradStart": "#a8cbb8",
+    "gradEnd": "#d9efe8"
+  },
+  {
+    "image": "images/fumos_padded/youmu.png",
+    "name": "Youmu",
+    "character": "Youmu Konpaku",
+    "download": "downloads/youmu.zip",
+    "date": "2024-12-10",
+    "gradStart": "#b8d0b5",
+    "gradEnd": "#e3ece8"
+  },
+  {
+    "image": "images/fumos_padded/mokou.png",
+    "name": "Mokou",
+    "character": "Fujiwara no Mokou",
+    "download": "downloads/mokou.zip",
+    "date": "2024-12-09",
+    "gradStart": "#d3b0a0",
+    "gradEnd": "#efe1d2"
+  },
+  {
+    "image": "images/fumos_padded/okuu.png",
+    "name": "Okuu",
+    "character": "Utsuho Reiuji",
+    "download": "downloads/okuu.zip",
+    "date": "2024-12-07",
+    "gradStart": "#c99f78",
+    "gradEnd": "#e6d2a8"
+  },
+  {
+    "image": "images/fumos_padded/suwako.png",
+    "name": "Suwako",
+    "character": "Suwako Moriya",
+    "download": "downloads/suwako.zip",
+    "date": "2024-12-06",
+    "gradStart": "#a7b97d",
+    "gradEnd": "#d8c98f"
+  },
+  {
+    "image": "images/fumos_padded/sakuya.png",
+    "name": "Sakuya",
+    "character": "Sakuya Izayoi",
+    "download": "downloads/sakuya.zip",
+    "date": "2024-12-05",
+    "gradStart": "#aebdcb",
+    "gradEnd": "#e4e8ee"
+  },
+  {
+    "image": "images/fumos_padded/remilia.png",
+    "name": "Remilia",
+    "character": "Remilia Scarlet",
+    "download": "downloads/remilia.zip",
+    "date": "2024-12-02",
+    "gradStart": "#a68aa8",
+    "gradEnd": "#d7bcc7"
+  },
+  {
+    "image": "images/fumos_padded/flandre.png",
+    "name": "Flandre",
+    "character": "Flandre Scarlet",
+    "download": "downloads/flandre.zip",
+    "date": "2024-11-29",
+    "gradStart": "#d7b86a",
+    "gradEnd": "#e6c8b8"
+  },
+  {
+    "image": "images/fumos_padded/satori.png",
+    "name": "Satori",
+    "character": "Satori Komeiji",
+    "download": "downloads/satori.zip",
+    "date": "2024-12-01",
+    "gradStart": "#c4a4c8",
+    "gradEnd": "#f0d6db"
+  },
+  {
+    "image": "images/fumos_padded/tewi.png",
+    "name": "Tewi",
+    "character": "Tewi Inaba",
+    "download": "downloads/tewi.zip",
+    "date": "2024-11-30",
+    "gradStart": "#d8d2c3",
+    "gradEnd": "#efe6dc"
+  },
+  {
+    "image": "images/fumos_padded/koishi.png",
+    "name": "Koishi",
+    "character": "Koishi Komeiji",
+    "download": "downloads/koishi.zip",
+    "date": "2024-11-30",
+    "gradStart": "#a9c99d",
+    "gradEnd": "#f0e1b8"
+  },
+  {
+    "image": "images/fumos_padded/reisen.png",
+    "name": "Reisen",
+    "character": "Reisen Udongein Inaba",
+    "download": "downloads/reisen.zip",
+    "date": "2024-11-29",
+    "gradStart": "#c2b2d8",
+    "gradEnd": "#e8d7d8"
+  },
+  {
+    "image": "images/fumos_padded/marisa.png",
+    "name": "Marisa",
+    "character": "Marisa Kirisame",
+    "download": "downloads/marisa.zip",
+    "date": "2024-11-27",
+    "gradStart": "#d6be72",
+    "gradEnd": "#ddd4c5"
+  }
 ]

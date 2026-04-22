@@ -7,8 +7,10 @@
         <link rel="stylesheet" href="background-styles.css">
         <link rel="stylesheet" href="stylesheets/gallery-styles.css">
         <link rel="stylesheet" href="stylesheets/search-styles.css">
+        <script type="text/javascript" src="scripts/data.js" defer></script>
         <script type="text/javascript" src="scripts/decor.js" defer></script>
         <script type="text/javascript" src="scripts/search.js" defer></script>
+        <script type="text/javascript" src="scripts/gallery.js" defer></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>FumoFumo Archives</title>
     </head>
@@ -52,6 +54,24 @@
                     <span class="fill right"></span>
                 </p>
             </div>
+
+        <div class="gallery-container panel">
+            <button class="nav-left" type="button" aria-label="Previous image"></button>
+
+            <div class="gallery" id="gallery">
+                <div class="gallery-track">
+                    <!-- TEMPALTE <div class="gallery-item" data-grad-start="#f6d365" data-grad-end="#fda085">
+                        <img src="images/fumos_padded/reimu.png" alt="Slide 1">
+                    </div> -->
+                </div>
+            </div>
+
+            <button class="nav-right" type="button" aria-label="Next image"></button>
+        </div>
+
+            <p class="dash-line">
+                <span class="dash-fill"></span>
+            </p>
         </div>
 
         <footer class="footer">
