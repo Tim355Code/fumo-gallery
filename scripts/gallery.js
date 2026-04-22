@@ -50,7 +50,7 @@ let targetStart = { ...currentStart };
 let targetEnd = { ...currentEnd };
 
 let lastTime = performance.now();
-const colorSpeedPerSecond = 700;
+const colorSpeedPerSecond = 100;
 
 function renderGradient() {
     gallery.style.background = `linear-gradient(to bottom, ${rgbToHex(currentStart)}, ${rgbToHex(currentEnd)})`;
@@ -133,9 +133,8 @@ nextBtn.addEventListener("click", nextSlide);
 
 // load json
 async function loadGalleryData() {
-    loadAppData().then(data => {
-        buildGallery(data);
-    });
+    const data = await loadAppData();
+    buildGallery(data);
     currentIndex = 0;
     updateGallery();
 }
