@@ -5,22 +5,22 @@ Live site: https://fumofumos.com/
 
 ## About
 The site currently has three pages:
-\- **Home** - a landing page for the project with latest additions listed.
-\- **Gallery** - the main collection of pixel art with a navigatable gallery.
-\- **About** - info about the site, usage rules, and a bit about me.
+- **Home** - a landing page for the project with latest additions listed.
+- **Gallery** - the main collection of pixel art with a navigatable gallery.
+- **About** - info about the site, usage rules, and a bit about me.
 
 ## Usage
 All pixel art on the site is made by me and is free to use for both personal and commercial projects.
 
 ### You may:
-\- Use the art in personal projects
-\- Use the art in commercial projects
-\- Edit or include the art in your own work
+- Use the art in personal projects
+- Use the art in commercial projects
+- Edit or include the art in your own work
 
 ### Please do not:
-\- Claim the art as your own
-\- Resell or redistribute the raw art files by themselves
-\- Use the art for hateful or harmful conten
+- Claim the art as your own
+- Resell or redistribute the raw art files by themselves
+- Use the art for hateful or harmful conten
 
 Credit is appreciated, but not required.
 
