@@ -2,8 +2,13 @@ const gallery = document.querySelector("#gallery");
 const track = gallery.querySelector(".gallery-track");
 const prevBtn = document.querySelector(".nav-left");
 const nextBtn = document.querySelector(".nav-right");
+const nameText = document.getElementById("name");
+const dateText = document.getElementById("date");
+const downloadBtn = document.querySelector(".download-btn");
+const downloadBtnMobile = document.querySelector(".download-btn-mobile");
 
 let slides = [];
+let artworkData = []
 let currentIndex = 0;
 
 // gradient fallback
@@ -89,6 +94,7 @@ function createGalleryItem(item) {
 }
 
 function buildGallery(data) {
+    artworkData = data;
     track.innerHTML = "";
 
     data.forEach(item => {
@@ -106,8 +112,27 @@ function updateGallery() {
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
     const activeSlide = slides[currentIndex];
+    const activeData = artworkData[currentIndex];
+
     targetStart = hexToRgb(activeSlide.dataset.gradStart || FALLBACK_GRAD_START);
     targetEnd = hexToRgb(activeSlide.dataset.gradEnd || FALLBACK_GRAD_END);
+
+    downloadBtn.href = activeData.download;
+    downloadBtn.download = activeData.download.split("/").pop();
+    downloadBtnMobile.href = activeData.download;
+    downloadBtnMobile.download = activeData.download.split("/").pop();
+
+    nameText.textContent = activeData.name;
+    dateText.textContent = formatDate(activeData.date);
+}
+
+function formatDate(dateStr) {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString(undefined, {
+        weekday: 'short',
+        day: 'numeric',
+        month: 'long'
+    });
 }
 
 function goToSlide(index) {
@@ -130,6 +155,35 @@ function prevSlide() {
 
 prevBtn.addEventListener("click", prevSlide);
 nextBtn.addEventListener("click", nextSlide);
+
+// swipe controls
+let touchStartX = 0;
+let touchStartY = 0;
+const SWIPE_THRESHOLD = 50;
+
+gallery.addEventListener("touchstart", (e) => {
+    const touch = e.changedTouches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+}, { passive: true });
+
+gallery.addEventListener("touchend", (e) => {
+    const touch = e.changedTouches[0];
+    const diffX = touch.clientX - touchStartX;
+    const diffY = touch.clientY - touchStartY;
+
+    // ignore tiny swipes
+    if (Math.abs(diffX) < SWIPE_THRESHOLD) return;
+
+    // ignore mostly vertical gestures
+    if (Math.abs(diffY) > Math.abs(diffX)) return;
+
+    if (diffX < 0) {
+        nextSlide();
+    } else {
+        prevSlide();
+    }
+}, { passive: true });
 
 // load json
 async function loadGalleryData() {

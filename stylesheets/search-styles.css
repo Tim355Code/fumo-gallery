@@ -1,6 +1,6 @@
 .search-wrapper {
     position: relative;
-    width: 320px;
+    width: min(320px, 98%);
 }
 
 .search-input {
