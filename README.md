@@ -32,9 +32,9 @@ It exists to host the site on GitHub Pages and keep the art collection easy to b
 ## Tech
 
 This is a simple static site built with:
-\- HTML
-\- CSS
-\- GitHub Pages
+- HTML
+- CSS
+- GitHub Pages
 
 ## Local preview
 You can open the HTML files directly in a browser, or run a local static server.
