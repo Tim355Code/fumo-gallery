@@ -11,7 +11,7 @@ EXTENSIONS = {".png", ".webp", ".jpg", ".jpeg"}
 
 # Columns whose filled pixel count is below this fraction of the
 # tallest filled column will be ignored for horizontal centering.
-COLUMN_IMPORTANCE_THRESHOLD = 0.25
+COLUMN_IMPORTANCE_THRESHOLD = 0.5
 
 # Ignore tiny stray alpha values / anti-aliased nearly-transparent pixels.
 ALPHA_THRESHOLD = 10
