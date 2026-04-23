@@ -251,3 +251,25 @@ ul li::before {
         width: 100%;
     }
 }
+
+@media (max-width: 600px) {
+    @media (max-width: 980px) {
+        .rules-content,
+        .about-content {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .rules-image,
+        .about-image {
+            margin: 10px 0 0 0;
+            height: clamp(140px, 50vw, 240px);
+            width: auto;
+            max-width: none;
+        }
+
+        .about-text {
+            width: 100%;
+        }
+    }
+}
