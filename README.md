@@ -44,7 +44,7 @@ To run with python you can use:
 Then open:
 ```http://localhost:8000```
 
-## ## License
+## License
 The code in this repository is licensed under the MIT License unless stated otherwise.
 
 The pixel art is free to use under the usage rules described on the website. See the About page for the specific permissions and restrictions.
