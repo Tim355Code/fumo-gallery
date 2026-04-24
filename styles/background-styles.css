@@ -1,20 +1,20 @@
 @font-face {
     font-family: 'Kongtext';
-    src: url("./fonts/KongtextModified.woff2") format("woff2");
+    src: url("../fonts/KongtextModified.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Lowres-Pixel';
-    src: url("./fonts/LowresPixel-Regular.woff2") format("woff2");
+    src: url("../fonts/LowresPixel-Regular.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Pixelify-Sans';
-    src: url("./fonts/PixelifySansModified.woff2") format("woff2");
+    src: url("../fonts/PixelifySansModified.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
 }
@@ -131,7 +131,7 @@ body {
     height: 36px;
     display: block;
     cursor: pointer;
-    background-image: url("images/ui/hamburger.png");
+    background-image: url("../images/ui/hamburger.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -168,7 +168,7 @@ body {
         max-height: 500px;
     }
     #menu:checked ~ .logo .menu-toggle {
-        background-image: url("images/ui/x.png");
+        background-image: url("../images/ui/x.png");
     }
 }
 
@@ -180,7 +180,7 @@ body {
 .panel {
     padding: 0;
     border: 22px solid transparent;
-    border-image-source: url("images/ui/panel.png");
+    border-image-source: url("../images/ui/panel.png");
     border-image-slice: 7 fill;
     border-image-repeat: stretch;
     background: transparent;

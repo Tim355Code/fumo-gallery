@@ -3,14 +3,14 @@ export function createSearchController({
     data,
     onResultSelect,
 }) {
-    const wrapper = root.querySelector(".search-wrapper");
+    const wrapper = root.querySelector(".search");
 
     if (!wrapper) {
         return null;
     }
 
     const input = wrapper.querySelector(".search-input");
-    const clearButton = wrapper.querySelector(".clear-btn");
+    const clearButton = wrapper.querySelector(".search-clear");
     const results = wrapper.querySelector(".search-results");
 
     function clearSearch() {
@@ -25,38 +25,38 @@ export function createSearchController({
 
     function getMatches(query) {
         return data
-        .map((item, index) => ({
-            ...item,
-            originalIndex: index,
-        }))
-        .filter((item) => {
-            const character = item.character?.toLowerCase() || "";
-            const name = item.name?.toLowerCase() || "";
+            .map((item, index) => ({
+                ...item,
+                originalIndex: index,
+            }))
+            .filter((item) => {
+                const character = item.character?.toLowerCase() || "";
+                const name = item.name?.toLowerCase() || "";
 
-            return character.includes(query) || name.includes(query);
-        })
-        .slice(0, 8);
+                return character.includes(query) || name.includes(query);
+            })
+            .slice(0, 8);
     }
 
     function renderResults(matches) {
         if (!matches.length) {
-        results.innerHTML = `<div class="no-results">No results</div>`;
-        return;
+            results.innerHTML = `<div class="search-empty">No results</div>`;
+            return;
         }
 
         results.innerHTML = matches
-        .map(
-            (item) => `
-            <button
-                class="search-result"
-                type="button"
-                data-index="${item.originalIndex}"
-            >
-                ${item.character}
-            </button>
-            `
-        )
-        .join("");
+            .map(
+                (item) => `
+                    <button
+                        class="search-result"
+                        type="button"
+                        data-index="${item.originalIndex}"
+                    >
+                        ${item.character}
+                    </button>
+                `
+            )
+            .join("");
     }
 
     input.addEventListener("input", () => {
@@ -68,9 +68,9 @@ export function createSearchController({
         wrapper.classList.toggle("has-text", hasText);
 
         if (!hasText) {
-        wrapper.classList.remove("show-results");
-        results.innerHTML = "";
-        return;
+            wrapper.classList.remove("show-results");
+            results.innerHTML = "";
+            return;
         }
 
         const matches = getMatches(query);

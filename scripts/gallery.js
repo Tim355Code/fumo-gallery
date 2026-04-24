@@ -10,9 +10,9 @@ function hexToRgb(hex) {
 
     if (cleanHex.length === 3) {
         cleanHex = cleanHex
-        .split("")
-        .map((char) => char + char)
-        .join("");
+            .split("")
+            .map((char) => char + char)
+            .join("");
     }
 
     const number = parseInt(cleanHex, 16);
@@ -50,13 +50,14 @@ function moveColorTowards(current, target, maxDelta) {
 export function createGalleryController({ root, data }) {
     const gallery = root.querySelector("#gallery");
     const track = root.querySelector(".gallery-track");
-    const prevButton = root.querySelector(".nav-left");
-    const nextButton = root.querySelector(".nav-right");
+    const prevButton = root.querySelector(".gallery-arrow.previous");
+    const nextButton = root.querySelector(".gallery-arrow.next");
     const nameText = root.querySelector("#name");
     const dateText = root.querySelector("#date");
+
     const downloadButtons = [
-        root.querySelector(".download-btn"),
-        root.querySelector(".download-btn-mobile"),
+        root.querySelector(".gallery-download"),
+        root.querySelector(".gallery-download-mobile"),
     ].filter(Boolean);
 
     let slides = [];
@@ -70,7 +71,7 @@ export function createGalleryController({ root, data }) {
 
     function renderGradient() {
         gallery.style.background = `
-        linear-gradient(to bottom, ${rgbToHex(currentStart)}, ${rgbToHex(currentEnd)})
+            linear-gradient(to bottom, ${rgbToHex(currentStart)}, ${rgbToHex(currentEnd)})
         `;
     }
 
@@ -95,9 +96,7 @@ export function createGalleryController({ root, data }) {
         slide.dataset.gradEnd = item.gradEnd || FALLBACK_GRAD_END;
 
         slide.innerHTML = `
-        <div class="gallery-card">
             <img src="${item.image}" alt="${item.name}">
-        </div>
         `;
 
         return slide;
@@ -107,7 +106,7 @@ export function createGalleryController({ root, data }) {
         track.innerHTML = "";
 
         data.forEach((item) => {
-        track.appendChild(createGalleryItem(item));
+            track.appendChild(createGalleryItem(item));
         });
 
         slides = [...track.querySelectorAll(".gallery-item")];
@@ -125,12 +124,12 @@ export function createGalleryController({ root, data }) {
         targetEnd = hexToRgb(activeSlide.dataset.gradEnd || FALLBACK_GRAD_END);
 
         downloadButtons.forEach((button) => {
-        button.href = activeData.download;
-        button.download = activeData.download.split("/").pop();
+            button.href = activeData.download;
+            button.download = activeData.download.split("/").pop();
         });
 
         nameText.textContent = activeData.name;
-        dateText.textContent = formatArtworkDate(activeData.date);
+        dateText.textContent = formatArtworkDate(activeData.creationDate);
     }
 
     function goToSlide(index) {
@@ -159,34 +158,34 @@ export function createGalleryController({ root, data }) {
         let touchStartY = 0;
 
         gallery.addEventListener(
-        "touchstart",
-        (event) => {
-            const touch = event.changedTouches[0];
+            "touchstart",
+            (event) => {
+                const touch = event.changedTouches[0];
 
-            touchStartX = touch.clientX;
-            touchStartY = touch.clientY;
-        },
-        { passive: true }
+                touchStartX = touch.clientX;
+                touchStartY = touch.clientY;
+            },
+            { passive: true }
         );
 
         gallery.addEventListener(
-        "touchend",
-        (event) => {
-            const touch = event.changedTouches[0];
+            "touchend",
+            (event) => {
+                const touch = event.changedTouches[0];
 
-            const diffX = touch.clientX - touchStartX;
-            const diffY = touch.clientY - touchStartY;
+                const diffX = touch.clientX - touchStartX;
+                const diffY = touch.clientY - touchStartY;
 
-            if (Math.abs(diffX) < SWIPE_THRESHOLD) return;
-            if (Math.abs(diffY) > Math.abs(diffX)) return;
+                if (Math.abs(diffX) < SWIPE_THRESHOLD) return;
+                if (Math.abs(diffY) > Math.abs(diffX)) return;
 
-            if (diffX < 0) {
-            nextSlide();
-            } else {
-            prevSlide();
-            }
-        },
-        { passive: true }
+                if (diffX < 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            },
+            { passive: true }
         );
     }
 

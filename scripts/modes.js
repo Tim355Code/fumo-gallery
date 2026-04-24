@@ -1,37 +1,43 @@
 export function createModeController(root = document) {
-    const buttons = [...root.querySelectorAll(".mode-btn")];
+    const buttons = [...root.querySelectorAll(".mode-button")];
     const singleView = root.querySelector(".single-view");
     const multipleView = root.querySelector(".multiple-view");
 
+    function setActiveButton(activeButton) {
+        buttons.forEach((button) => {
+            button.classList.toggle("is-active", button === activeButton);
+        });
+    }
+
     function showSingleView() {
-        buttons.forEach((button) => button.classList.remove("active"));
+        const button = root.querySelector(".mode-button.single");
 
-        root.querySelector(".mode-btn.single")?.classList.add("active");
+        setActiveButton(button);
 
-        singleView?.classList.add("active-view");
-        multipleView?.classList.remove("active-view");
+        singleView?.classList.add("is-active");
+        multipleView?.classList.remove("is-active");
     }
 
     function showMultipleView() {
-        buttons.forEach((button) => button.classList.remove("active"));
+        const button = root.querySelector(".mode-button.multiple");
 
-        root.querySelector(".mode-btn.multiple")?.classList.add("active");
+        setActiveButton(button);
 
-        multipleView?.classList.add("active-view");
-        singleView?.classList.remove("active-view");
+        multipleView?.classList.add("is-active");
+        singleView?.classList.remove("is-active");
     }
 
     function isMultipleViewActive() {
-        return multipleView?.classList.contains("active-view") ?? false;
+        return multipleView?.classList.contains("is-active") ?? false;
     }
 
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
-        if (button.classList.contains("single")) {
-            showSingleView();
-        } else {
-            showMultipleView();
-        }
+            if (button.classList.contains("single")) {
+                showSingleView();
+            } else {
+                showMultipleView();
+            }
         });
     });
 

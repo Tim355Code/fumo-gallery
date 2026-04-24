@@ -1,0 +1,81 @@
+@font-face {
+    font-family: "Kongtext";
+    src: url("../fonts/KongtextModified.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Lowres-Pixel";
+    src: url("../fonts/LowresPixel-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Pixelify-Sans";
+    src: url("../fonts/PixelifySansModified.woff2") format("woff2");
+}
+
+:root {
+    --color-bg: rgb(20, 20, 22);
+    --color-surface: rgb(29, 29, 33);
+    --color-surface-hover: rgb(44, 44, 54);
+    --color-border: rgb(55, 56, 64);
+    --color-text: white;
+    --color-muted: rgb(185, 185, 185);
+    --color-pink: #d94a5b;
+    --color-blue: #62b7ff;
+
+    --font-pixel: "Pixelify-Sans", monospace;
+    --font-lowres: "Lowres-Pixel", monospace;
+    --font-title: "Kongtext", monospace;
+
+    --panel-border: url("../images/ui/panel.png");
+    --panel-highlight-border: url("../images/ui/panel_highlight.png");
+    --outline-border: url("../images/ui/outline.png");
+}
+
+* {
+    box-sizing: border-box;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-pixel);
+}
+
+img {
+    max-width: 100%;
+}
+
+p {
+    margin: 0;
+    color: var(--color-muted);
+    font-family: var(--font-lowres);
+    font-size: 20px;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}

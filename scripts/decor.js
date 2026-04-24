@@ -24,18 +24,15 @@ function copyTextStyles(source, target) {
 function updateTitleFills() {
     const measurer = createHiddenMeasurer();
 
-    document.querySelectorAll(".title").forEach((title) => {
-        const label = title.querySelector(".label");
-        const fills = title.querySelectorAll(".fill");
+    document.querySelectorAll(".decor-title").forEach((title) => {
+        const label = title.querySelector(".decor-title-label");
+        const fills = title.querySelectorAll(".decor-title-fill");
 
         if (!label || fills.length !== 2) return;
 
-        const titleStyle = getComputedStyle(title);
         const titleWidth = title.clientWidth;
         const labelWidth = label.getBoundingClientRect().width;
-        const gap = parseFloat(titleStyle.gap || 0);
-
-        const availableTotal = Math.max(0, titleWidth - labelWidth - gap * 2);
+        const availableTotal = Math.max(0, titleWidth - labelWidth);
         const availablePerSide = availableTotal / 2;
 
         measurer.textContent = "-";
@@ -44,7 +41,7 @@ function updateTitleFills() {
         const dashWidth = measurer.getBoundingClientRect().width;
         if (dashWidth <= 0) return;
 
-        const count = Math.floor(availablePerSide / dashWidth);
+        const count = Math.max(0, Math.floor(availablePerSide / dashWidth) - 1);
         const text = "-".repeat(count);
 
         fills[0].textContent = text;
@@ -66,7 +63,7 @@ function updateDashLines() {
         const dashWidth = measurer.getBoundingClientRect().width;
         if (dashWidth <= 0) return;
 
-        const count = Math.floor(width / dashWidth);
+        const count = Math.max(0, Math.floor(width / dashWidth) - 1);
         fill.textContent = "-".repeat(count);
     });
 

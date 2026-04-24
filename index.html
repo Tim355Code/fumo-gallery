@@ -2,22 +2,24 @@
 
 <html lang="en">
     <head>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>FumoFumos Archives | Free Fumo Pixel Art by Tim_M</title>
+        <meta name="description" content="Free-to-use fumo pixel art by Tim_M. Check out the latest additions, download all sprites, and learn about the site.">
+
         <script type="module" src="scripts/home.js"></script>
         <script type="module" src="scripts/decor.js"></script>
 
-        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-        <link rel="stylesheet" href="background-styles.css">
-        <link rel="stylesheet" href="stylesheets/intro-styles.css">
-        <link rel="stylesheet" href="stylesheets/latest-styles.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/base.css">
+        <link rel="stylesheet" href="styles/layout.css">
+        <link rel="stylesheet" href="styles/components.css">
+        <link rel="stylesheet" href="styles/home.css">
 
         <!-- Preload hover assets -->
         <link rel="preload" as="image" href="images/ui/button_highlight.png">
         <link rel="preload" as="image" href="images/ui/arrow_highlight.png">
         <link rel="preload" as="image" href="images/ui/x.png">
-
-        <title>FumoFumos Archives | Free Fumo Pixel Art by Tim_M</title>
-        <meta name="description" content="Free-to-use fumo pixel art by Tim_M. Check out the latest additions, download all sprites, and learn about the site.">
 
         <script type="application/ld+json">
             {
@@ -30,61 +32,70 @@
         </script>
     </head>
     <body>
-        <header>
+        <header class="site-header">
             <nav class="menu">
-                <input type="checkbox" id="menu">
+                <input class="menu-checkbox" type="checkbox" id="menu">
+
                 <div class="logo">
-                    <div class="fumos">
-                        <div class="fumo"><img src="images/logo/reimu.png" alt="Small Reimu fumo"></div>
-                        <div class="fumo"><img src="images/logo/sanae.png" alt="Small Sanae fumo"></div>
-                        <div class="fumo"><img src="images/logo/tewi.png" alt="Small Tewi fumo"></div>
+                    <div class="logo-fumos">
+                        <div class="logo-fumo"><img src="images/logo/reimu.png" alt="Small Reimu fumo"></div>
+                        <div class="logo-fumo"><img src="images/logo/sanae.png" alt="Small Sanae fumo"></div>
+                        <div class="logo-fumo"><img src="images/logo/tewi.png" alt="Small Tewi fumo"></div>
                     </div>
-                    <label for="menu" class="menu-toggle"></label>
+
+                    <label for="menu" class="menu-toggle" aria-label="Toggle menu"></label>
                 </div>
 
-                <div class="items">
-                    <a href="index.html" class="item active">Home</a>
-                    <a href="gallery.html" class="item">Gallery</a>
-                    <a href="about.html" class="item">About</a>
+                <div class="menu-items">
+                    <a href="index.html" class="menu-item is-active">Home</a>
+                    <a href="gallery.html" class="menu-item">Gallery</a>
+                    <a href="about.html" class="menu-item">About</a>
                 </div>
             </nav>
         </header>
-        <div class="main">
-            <div class="panel intro">
-                <div class="intro-media">
-                    <div class="top-fumo-wrapper">
-                        <img src="images/fumos/reimu.png" alt="Reimu fumo" class="top-fumo">
+        <main class="page">
+            <section class="panel home-intro">
+                <div class="home-intro-media">
+                    <div class="home-fumo-wrapper">
+                        <img src="images/fumos/reimu.png" alt="Reimu fumo">
                     </div>
                 </div>
-                <div class="intro-text">
-                    <h1 class="title">Fumo Fumos!!!</h1>
+
+                <div class="home-intro-text">
+                    <h1 class="pixel-title">Fumo Fumos!!!</h1>
                     <p>Welcome to FumoFumos.com! <br>We host a collection of free* to use fumo pixel art!</p>
                 </div>
-                <div class="intro-side">
-                    <div class="cta-wrap">
-                        <a class="big-button" href="downloads/all.zip" download>
-                            <span class="button-content">
-                                <img src="images/ui/download.png" alt="Download button" class="button-icon">
-                                <span class="button-label">Download Full Pack</span>
+
+                <div class="home-intro-side">
+                    <div class="home-cta">
+                        <a class="pixel-button" href="downloads/all.zip" download>
+                            <span class="home-download-content">
+                                <img src="images/ui/download.png" alt="" class="home-download-icon">
+                                <span class="home-download-label">Download Full Pack</span>
                             </span>
                         </a>
-                        <p class="side-note">Individual downloads are in gallery.</p>
+
+                        <p class="home-note">Individual downloads are in gallery.</p>
                     </div>
                 </div>
+            </section>
+
+            <div class="latest-heading">
+                <p class="latest-heading-text">
+                    <img src="images/ui/star.png" alt="">
+                    Latest Additions
+                    <img src="images/ui/star.png" alt="" class="latest-heading-star-mobile">
+                </p>
+
+                <div class="latest-heading-fill" aria-hidden="true"></div>
+
+                <a href="gallery.html" class="text-link latest-heading-link">
+                    View All<span class="text-link-icon"></span>
+                </a>
             </div>
-            <div class="subtitle">
-                <p class="subtitle-content"><img src="images/ui/star.png" class="star">Latest Additions<img src="images/ui/star.png" class="star" id="rightstar"></p> 
-                <div class="subtitle-fill" aria-hidden="true"></div>
-                <a href="gallery.html" class="subtitle-link">View All<span class="subtitle-icon"></span></a>
-            </div>
-            <div class="latest" id="latest-artworks">
-               <!-- <div class="panel frame">
-                    <img src="images/fumos/reimu.png" alt="temp">
-                    <p class="name">Cool thing</p>
-                    <p class="date">Friday 17 April</p>
-                </div> -->
-            </div>
-        </div>
+
+            <section class="latest-grid" id="latest-artworks"></section>
+        </main>
         <footer class="footer">
             <img src="images/ui/heart.png">
             <p>Made with Fumos</p>

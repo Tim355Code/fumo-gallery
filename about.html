@@ -3,90 +3,105 @@
 <html lang="en">
     <head>
         <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-        <link rel="stylesheet" href="background-styles.css">
-        <link rel="stylesheet" href="stylesheets/about-styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>About | FumoFumos Archives</title>
+        <meta name="description" content="Learn about FumoFumos Archives, the artist behind the site, and the usage rules for the pixel art.">
+
+        <link rel="stylesheet" href="styles/base.css">
+        <link rel="stylesheet" href="styles/layout.css">
+        <link rel="stylesheet" href="styles/components.css">
+        <link rel="stylesheet" href="styles/about.css">
 
         <!-- Preload hover assets -->
         <link rel="preload" as="image" href="images/ui/arrow_highlight.png">
         <link rel="preload" as="image" href="images/ui/x.png">
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>About | FumoFumos Archives</title>
-        <meta name="description" content="Learn about FumoFumos Archives, the artist behind the site, and the usage rules for the pixel art.">
     </head>
     <body>
-        <header>
+        <header class="site-header">
             <nav class="menu">
-                <input type="checkbox" id="menu">
+                <input class="menu-checkbox" type="checkbox" id="menu">
+
                 <div class="logo">
-                    <div class="fumos">
-                        <div class="fumo"><img src="images/logo/reimu.png" alt="Small Reimu fumo"></div>
-                        <div class="fumo"><img src="images/logo/sanae.png" alt="Small Sanae fumo"></div>
-                        <div class="fumo"><img src="images/logo/tewi.png" alt="Small Tewi fumo"></div>
+                    <div class="logo-fumos">
+                        <div class="logo-fumo"><img src="images/logo/reimu.png" alt="Small Reimu fumo"></div>
+                        <div class="logo-fumo"><img src="images/logo/sanae.png" alt="Small Sanae fumo"></div>
+                        <div class="logo-fumo"><img src="images/logo/tewi.png" alt="Small Tewi fumo"></div>
                     </div>
-                    <label for="menu" class="menu-toggle"></label>
+
+                    <label for="menu" class="menu-toggle" aria-label="Toggle menu"></label>
                 </div>
 
-                <div class="items">
-                    <a href="index.html" class="item">Home</a>
-                    <a href="gallery.html" class="item">Gallery</a>
-                    <a href="about.html" class="item active">About</a>
+                <div class="menu-items">
+                    <a href="index.html" class="menu-item">Home</a>
+                    <a href="gallery.html" class="menu-item">Gallery</a>
+                    <a href="about.html" class="menu-item is-active">About</a>
                 </div>
             </nav>
         </header>
 
-        <div class="main">
-            <div class="panel about">
+        <main class="page">
+            <section class="panel about-hero">
                 <div class="about-media">
-                    <img src="images/fumos/sakuya.png" alt="Sakuya fumo" class="top-fumo">
+                    <img src="images/fumos/sakuya.png" alt="Sakuya fumo">
                 </div>
 
-                <div class="about-center">
-                    <h1 class="title">About this site</h1>
+                <div class="about-main">
+                    <h1 class="pixel-title">About this site</h1>
                     <p>FumoFumos.com is a small site for me to share my pixel art.</p>
                     <p>All art here is made by me and is free to download and use however you like!</p>
                     <p>Have fun and fumofumo :]</p>
                 </div>
 
-                <div class="about-side">
-                    <h1 class="title colored-title">What are fumos?</h1>
+                <aside class="outline-panel about-fumos">
+                    <h2 class="pixel-title is-pink">What are fumos?</h2>
                     <p>Fumos are plush dolls from the Touhou Project.</p>
                     <p>They are a popular meme in the community and a cute collectable.</p>
-                </div>
-            </div>
-            <div class="split">
-                <div class="panel left">
-                    <h1 class="title bottom-title colored-title"><img src="images/ui/save.png" class="save">Rules & Conditions</h1>
+                </aside>
+            </section>
+
+            <section class="about-grid">
+                <div class="panel about-panel">
+                    <h2 class="pixel-title is-pink about-panel-title">
+                        <img src="images/ui/save.png" alt="">
+                        Rules & Conditions
+                    </h2>
+
                     <div class="rules-content">
-                        <ul>
+                        <ul class="rules-list">
                             <li>You may use the pixel art for personal and commercial projects.</li>
                             <li>Credit is not strictly required but always appreciated!</li>
                             <li>Do not claim the art as your own.</li>
                             <li>Do not resell or redistribute the art files alone.</li>
                             <li>Do not use the art for anything hateful or harmful.</li>
                         </ul>
-                        <img src="images/fumos/yukari.png" class="rules-image">
+
+                        <img src="images/fumos/yukari.png" alt="" class="rules-image">
                     </div>
                 </div>
-                <div class="panel right">
-                    <h1 class="title bottom-title colored-title">
-                        <img src="images/ui/save.png" class="save">About Me
-                    </h1>
 
-                    <div class="about-content">
+                <div class="panel about-panel">
+                    <h2 class="pixel-title is-pink about-panel-title">
+                        <img src="images/ui/save.png" alt="">
+                        About Me
+                    </h2>
+
+                    <div class="bio-content">
                         <div class="about-text">
                             <p>Hi, I'm Tim_M. I'm the person behind this site.</p>
                             <p>I started making fumo pixel art as practice, then kept going because it was fun. Now I just add new ones whenever I feel like it.</p>
                             <p>I also made a jam game called Fumo TD, you can check it out on my itch page.</p>
-                            <a href="https://tim-m.itch.io" target="_blank" class="link">
-                                Visit my itch.io<span class="link-icon"></span>
+
+                            <a href="https://tim-m.itch.io" target="_blank" class="text-link about-link">
+                                Visit my itch.io<span class="text-link-icon"></span>
                             </a>
                         </div>
-                        <img src="images/ui/side-reimu.png" class="about-image">
+
+                        <img src="images/ui/side-reimu.png" alt="" class="about-image">
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
 
         <footer class="footer">
             <img src="images/ui/heart.png">

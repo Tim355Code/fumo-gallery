@@ -3,22 +3,45 @@ import { formatArtworkDate } from "./dates.js";
 import { createGalleryController } from "./gallery.js";
 import { createSearchController } from "./search.js";
 import { createModeController } from "./modes.js";
+import {
+    getArtworkDisplayName,
+    getArtworkCreationDate,
+} from "./artworks.js";
 
 function createArtworkGridCard(item, index) {
     const frame = document.createElement("div");
 
-    frame.className = "panel frame";
+    frame.className = "panel art-card";
     frame.dataset.index = index;
 
-    const displayName = item.latest || item.name;
+    const displayName = getArtworkDisplayName(item);
 
     frame.innerHTML = `
         <img src="${item.image}" alt="${displayName}">
-        <p class="name">${displayName}</p>
-        <p class="date">${formatArtworkDate(item.date)}</p>
+        <p class="art-card-name">${displayName}</p>
+        <p class="art-card-date">${formatArtworkDate(getArtworkCreationDate(item))}</p>
     `;
 
     return frame;
+}
+
+function highlightGridItem(index) {
+    const target = document.querySelector(
+        `#all-artworks .art-card[data-index="${index}"]`
+    );
+
+    if (!target) return;
+
+    document
+        .querySelectorAll("#all-artworks .art-card")
+        .forEach((card) => card.classList.remove("search-highlight"));
+
+    target.classList.add("search-highlight");
+
+    target.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+    });
 }
 
 function renderArtworkGrid(data) {
@@ -32,29 +55,16 @@ function renderArtworkGrid(data) {
     });
 }
 
-function highlightGridItem(index) {
-    const target = document.querySelector(
-        `#all-artworks .frame[data-index="${index}"]`
-    );
-
-    if (!target) return;
-
-    document
-        .querySelectorAll("#all-artworks .frame")
-        .forEach((frame) => frame.classList.remove("search-highlight"));
-
-    target.classList.add("search-highlight");
-
-    target.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-    });
-}
-
 async function initGalleryPage() {
     const data = await loadArtworkData();
 
-    renderArtworkGrid(data);
+    const gridData = data
+        .slice()
+        .sort((a, b) =>
+            a.name.localeCompare(b.name, undefined, { sensitivity: "base" })
+        );
+
+    renderArtworkGrid(gridData);
 
     const galleryController = createGalleryController({
         root: document,
@@ -63,18 +73,24 @@ async function initGalleryPage() {
 
     const modeController = createModeController(document);
 
-    createSearchController({
-        root: document,
-        data,
-        onResultSelect(index) {
+createSearchController({
+    root: document,
+    data: gridData,
+    onResultSelect(index) {
         if (modeController.isMultipleViewActive()) {
             highlightGridItem(index);
             return;
         }
 
-        galleryController.goToSlide(index);
-        },
-    });
+        const selectedItem = gridData[index];
+
+        const galleryIndex = data.findIndex(
+            (item) => item.name === selectedItem.name
+        );
+
+        galleryController.goToSlide(galleryIndex);
+    },
+});
 }
 
 initGalleryPage();

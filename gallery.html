@@ -2,12 +2,19 @@
 
 <html lang="en">
     <head>
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-        <link rel="stylesheet" href="background-styles.css">
-        <link rel="stylesheet" href="stylesheets/gallery-styles.css">
-        <link rel="stylesheet" href="stylesheets/search-styles.css">
-        <link rel="stylesheet" href="stylesheets/modes-styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Gallery | FumoFumos Archives</title>
+        <meta name="description" content="Browse and download free fumo pixel art from FumoFumos Archives. Personal and commercial use allowed.">
+
+        <link rel="stylesheet" href="styles/base.css">
+        <link rel="stylesheet" href="styles/layout.css">
+        <link rel="stylesheet" href="styles/components.css">
+        <link rel="stylesheet" href="styles/gallery.css">
+
+        <script type="module" src="scripts/gallery-page.js"></script>
+        <script type="module" src="scripts/decor.js"></script>
 
         <!-- Preload hover assets -->
         <link rel="preload" as="image" href="images/ui/download-button_highlight.png">
@@ -17,97 +24,113 @@
         <link rel="preload" as="image" href="images/ui/large-arrow_highlight.png">
         <link rel="preload" as="image" href="images/ui/x.png">
         <link rel="preload" as="image" href="images/ui/panel_highlight.png">
-
-        <script type="module" src="scripts/gallery-page.js"></script>
-        <script type="module" src="scripts/decor.js"></script>
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Gallery | FumoFumos Archives</title>
-        <meta name="description" content="Browse and download free fumo pixel art from FumoFumos Archives. Personal and commercial use allowed.">
+        <link rel="preload" as="image" href="images/ui/icon-single_highlight.png">
+        <link rel="preload" as="image" href="images/ui/icon-many_highlight.png">
     </head>
     <body>
-        <header>
+        <header class="site-header">
             <nav class="menu">
-                <input type="checkbox" id="menu">
+                <input class="menu-checkbox" type="checkbox" id="menu">
+
                 <div class="logo">
-                    <div class="fumos">
-                        <div class="fumo"><img src="images/logo/reimu.png" alt="Small Reimu fumo"></div>
-                        <div class="fumo"><img src="images/logo/sanae.png" alt="Small Sanae fumo"></div>
-                        <div class="fumo"><img src="images/logo/tewi.png" alt="Small Tewi fumo"></div>
+                    <div class="logo-fumos">
+                        <div class="logo-fumo"><img src="images/logo/reimu.png" alt="Small Reimu fumo"></div>
+                        <div class="logo-fumo"><img src="images/logo/sanae.png" alt="Small Sanae fumo"></div>
+                        <div class="logo-fumo"><img src="images/logo/tewi.png" alt="Small Tewi fumo"></div>
                     </div>
-                    <label for="menu" class="menu-toggle"></label>
+
+                    <label for="menu" class="menu-toggle" aria-label="Toggle menu"></label>
                 </div>
 
-                <div class="items">
-                    <a href="index.html" class="item">Home</a>
-                    <a href="gallery.html" class="item active">Gallery</a>
-                    <a href="about.html" class="item">About</a>
+                <div class="menu-items">
+                    <a href="index.html" class="menu-item">Home</a>
+                    <a href="gallery.html" class="menu-item is-active">Gallery</a>
+                    <a href="about.html" class="menu-item">About</a>
                 </div>
             </nav>
         </header>
 
-        <div class="main">
-            <div class="top-container">
-                <div class="search-wrapper">
+        <main class="page">
+            <div class="gallery-toolbar">
+                <div class="search">
                     <img src="images/ui/search.png" alt="" class="search-icon">
-                    <input type="search" placeholder="Search..." class="search-input" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off">
-                    <button class="clear-btn" type="button">x</button>
 
-                    <div class="search-results">
-                        <button class="search-result" type="button">Reimu Hakurei</button>
-                        <button class="search-result" type="button">Marisa Kirisame</button>
-                        <button class="search-result" type="button">Sakuya Izayoi</button>
-                    </div>
+                    <input
+                        type="search"
+                        placeholder="Search..."
+                        class="search-input"
+                        spellcheck="false"
+                        autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="off"
+                    >
+
+                    <button class="search-clear" type="button">x</button>
+                    <div class="search-results"></div>
                 </div>
-                <button class="mode-btn single active"><img src="images/ui/icon-single.png"></button>
-                <button class="mode-btn multiple"><img src="images/ui/icon-many.png"></button>
+
+                <button class="mode-button single is-active" type="button">
+                    <img src="images/ui/icon-single.png" alt="Single view">
+                </button>
+
+                <button class="mode-button multiple" type="button">
+                    <img src="images/ui/icon-many.png" alt="Grid view">
+                </button>
             </div>
-            <div class="line">
-                <p class="title">
-                    <span class="fill left"></span>
-                    <span class="label"><img src="images/ui/heart.png" class="heart" alt="Heart icon">Gallery<img src="images/ui/heart.png" class="heart" alt="Heart icon"></span>
-                    <span class="fill right"></span>
+
+            <div class="title-row">
+                <p class="decor-title">
+                    <span class="decor-title-fill left"></span>
+                    <span class="decor-title-label">
+                        <img src="images/ui/heart.png" class="icon-heart" alt="">
+                        Gallery
+                        <img src="images/ui/heart.png" class="icon-heart" alt="">
+                    </span>
+                    <span class="decor-title-fill"></span>
                 </p>
             </div>
-            <div class="mode-views">
-                <!-- SINGLE MODE -->
-                <div class="view single-view active-view">
-                    <div class="gallery-container panel">
-                        <a class="download-btn" href="" download><img src="images/ui/download.png" alt="Download icon"></a>
-                        <button class="nav-left" type="button" aria-label="Previous image"></button>
+
+            <div class="gallery-views">
+                <section class="gallery-view single-view is-active">
+                    <div class="panel gallery-panel">
+                        <a class="download-button gallery-download" href="" download>
+                            <img src="images/ui/download.png" alt="Download">
+                        </a>
+
+                        <button class="gallery-arrow previous" type="button" aria-label="Previous image"></button>
 
                         <div class="gallery-wrapper">
-                            <div class="gallery" id="gallery">
+                            <div class="gallery-stage" id="gallery">
                                 <div class="gallery-track"></div>
                             </div>
 
-                            <div class="gallery-text">
-                                <p class="title" id="name">Name</p>
-                                <p class="subtitle" id="date">Date</p>
+                            <div class="gallery-caption">
+                                <p class="pixel-title gallery-name" id="name">Name</p>
+                                <p class="gallery-date" id="date">Date</p>
                             </div>
-                            <a class="download-btn-mobile" href="" download>
-                                <img src="images/ui/download.png" alt="Download icon">
+
+                            <a class="download-button gallery-download-mobile" href="" download>
+                                <img src="images/ui/download.png" alt="Download">
                             </a>
                         </div>
 
-                        <button class="nav-right" type="button" aria-label="Next image"></button>
+                        <button class="gallery-arrow next" type="button" aria-label="Next image"></button>
                     </div>
-                </div>
+                </section>
 
-                <!-- MULTIPLE MODE -->
-                <div class="view multiple-view">
-                    <div class="all-artworks latest" id="all-artworks"></div>
-                </div>
+                <section class="gallery-view multiple-view">
+                    <div class="gallery-grid" id="all-artworks"></div>
+                </section>
             </div>
 
-            <a class="download-all-btn" href="downloads/all.zip" download>
-                Download All
-                <img src="images/ui/download.png" alt="Download icon">
+            <a class="download-button download-all" href="downloads/all.zip" download>
+                <img src="images/ui/download.png" alt="">
+                Download Full Pack
             </a>
-            <p class="dash-line">
+            <div class="dash-line">
                 <span class="dash-fill"></span>
-            </p>
-        </div>
+            </div>
+        </main>
 
         <footer class="footer">
             <img src="images/ui/heart.png">

@@ -1,0 +1,241 @@
+.home-intro {
+    width: min(100%, 1100px);
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.home-intro-media {
+    flex: 0 0 auto;
+}
+
+.home-fumo-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.home-fumo-wrapper::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: -13px;
+    z-index: 1;
+
+    width: 20px;
+    height: 20px;
+
+    background-image: url("../images/ui/notice.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.home-intro-media img {
+    display: block;
+    width: clamp(160px, 22vw, 240px);
+    height: auto;
+}
+
+.home-intro-text {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.home-intro-text .pixel-title {
+    margin-bottom: 10px;
+    font-size: 27px;
+}
+
+.home-intro-text p {
+    line-height: 1.5;
+    font-size: 21px;
+}
+
+.home-intro-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-cta {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-width: 100%;
+    font-size: 16px;
+}
+
+.home-download-content {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+
+    color: var(--color-text);
+    font-size: 1em;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.home-download-label {
+    font-family: var(--font-title);
+}
+
+.home-download-icon {
+    width: 1.5em;
+    height: 1.5em;
+    flex: 0 0 auto;
+}
+
+.home-note {
+    width: 0;
+    min-width: 100%;
+    margin-top: 8px;
+
+    text-align: center;
+    line-height: 1.3;
+    font-size: 20px;
+    white-space: normal;
+}
+
+.latest-heading {
+    width: min(87%, 920px);
+
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+}
+
+.latest-heading-text {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+
+    margin: 0;
+
+    color: var(--color-text);
+    font-family: var(--font-pixel);
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+.latest-heading-text img {
+    height: 20px;
+    transform: translateY(2px);
+}
+
+.latest-heading-fill {
+    flex: 0 0 auto;
+    overflow: hidden;
+
+    color: var(--color-muted);
+    font-family: var(--font-lowres);
+    font-size: 24px;
+    letter-spacing: 5px;
+    white-space: nowrap;
+
+    transform: translateY(-1px);
+}
+
+.latest-heading-link {
+    font-size: 20px;
+}
+
+.latest-grid {
+    width: min(90%, 1000px);
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(230px, 1fr));
+    justify-content: center;
+    gap: 25px 20px;
+}
+
+.latest-heading-star-mobile {
+    display: none;
+}
+
+@media (max-width: 980px) {
+    .home-intro {
+        width: min(100%, 800px);
+        flex-direction: column;
+        text-align: center;
+        padding: 0px 10px;
+    }
+
+    .home-intro-media,
+    .home-intro-text,
+    .home-intro-side {
+        width: 100%;
+        max-width: none;
+        flex: none;
+    }
+
+    .home-intro-media img {
+        width: min(70vw, 280px);
+        margin: 0 auto;
+    }
+
+    .home-intro-side {
+        align-items: stretch;
+    }
+
+    .home-cta {
+        display: flex;
+        width: 100%;
+        align-items: center;
+    }
+
+    .home-cta .pixel-button {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 clamp(0px, 1.5vw, 12px);
+    }
+
+    .home-download-content {
+        min-width: 0;
+        gap: clamp(4px, 1.5vw, 10px);
+        font-size: clamp(9px, 3vw, 20px);
+    }
+
+    .home-download-icon {
+        width: 1em;
+        height: 1em;
+    }
+
+    .home-note {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .latest-heading {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .latest-heading-fill {
+        display: none;
+    }
+
+    .latest-heading-star-mobile {
+        display: inline;
+    }
+
+    .latest-grid {
+        width: min(90%, 720px);
+        grid-template-columns: repeat(2, minmax(230px, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .home-intro {
+        padding: 0;
+    }
+    
+    .latest-grid {
+        width: 80%;
+        grid-template-columns: 1fr;
+    }
+}

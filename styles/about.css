@@ -1,0 +1,213 @@
+.about-hero {
+    width: min(100%, 1100px);
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.about-media {
+    flex: 0 0 auto;
+}
+
+.about-media img {
+    display: block;
+    width: clamp(90px, 20vw, 150px);
+    height: auto;
+}
+
+.about-main {
+    flex: 1 1 0;
+    min-width: 260px;
+}
+
+.about-main .pixel-title {
+    margin-bottom: 10px;
+    font-size: 27px;
+}
+
+.about-main p,
+.about-fumos p {
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+    font-size: 21px;
+}
+
+.about-main .pixel-title,
+.about-fumos .pixel-title,
+.about-panel-title {
+    margin-bottom: 12px;
+}
+
+.about-main p:last-child,
+.about-fumos p:last-child,
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+.about-fumos {
+    flex: 0.9 1 0;
+    min-width: 260px;
+    padding: 0 5px 5px;
+}
+
+.about-fumos h2 {
+    margin-top: 8px;
+}
+
+.about-grid {
+    width: min(100%, 1100px);
+
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 15px;
+}
+
+.about-panel {
+    width: 50%;
+    padding: 0 5px;
+}
+
+.about-panel-title {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+
+    margin-top: 5px;
+    padding: 0;
+}
+
+.about-panel-title img {
+    height: 18px;
+}
+
+.rules-content,
+.bio-content {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+.rules-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.rules-list li {
+    position: relative;
+
+    padding-left: 25px;
+
+    color: var(--color-muted);
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.rules-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+
+    width: 8px;
+    height: 8px;
+
+    background-image: url("../images/ui/circle.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.rules-image {
+    height: 200px;
+    margin-left: -20px;
+    margin-right: -10px;
+    flex-shrink: 0;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text p {
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+    font-size: 18px;
+}
+
+.about-image {
+    height: 210px;
+    margin-right: -15px;
+    margin-bottom: -10px;
+    margin-left: -20px;
+    flex-shrink: 0;
+}
+
+.about-link {
+    padding-bottom: 3px;
+    font-size: 17px;
+
+    background-image: repeating-linear-gradient(
+        to right,
+        currentColor 0,
+        currentColor 3px,
+        transparent 3px,
+        transparent 7px
+    );
+    background-position: bottom;
+    background-size: 100% 3px;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 980px) {
+    .about-hero {
+        width: min(100%, 800px);
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-media,
+    .about-main,
+    .about-fumos {
+        width: 100%;
+        max-width: none;
+        flex: none;
+    }
+
+    .about-media img {
+        width: min(70vw, 180px);
+        margin: 0 auto;
+    }
+
+    .about-grid {
+        width: min(100%, 800px);
+        flex-direction: column;
+    }
+
+    .about-panel {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .rules-content,
+    .bio-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rules-image,
+    .about-image {
+        width: auto;
+        height: clamp(140px, 50vw, 240px);
+        max-width: none;
+        margin: 10px 0 0;
+    }
+
+    .about-text {
+        width: 100%;
+    }
+}

@@ -1,0 +1,205 @@
+.panel {
+    border: 22px solid transparent;
+    border-image: var(--panel-border) 7 fill stretch;
+    background: transparent;
+}
+
+.panel.is-highlighted {
+    border-image-source: var(--panel-highlight-border);
+}
+
+.outline-panel {
+    border: 16px solid transparent;
+    border-image: var(--outline-border) 7 fill stretch;
+    background: transparent;
+}
+
+.pixel-title {
+    margin: 0;
+    color: var(--color-text);
+    font-family: var(--font-pixel);
+    font-size: 22px;
+    font-weight: normal;
+}
+
+.pixel-title.is-pink {
+    color: var(--color-pink);
+}
+
+.title-row {
+    width: min(95%, 1200px);
+    margin: 0 auto;
+    white-space: nowrap;
+}
+
+.decor-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin: 0;
+    color: var(--color-text);
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+.decor-title-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    flex: 0 0 auto;
+    font-family: var(--font-title);
+}
+
+.decor-title-fill {
+    flex: 1 1 0;
+    overflow: hidden;
+
+    color: var(--color-muted);
+    font-family: var(--font-pixel);
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.decor-title-fill.left {
+    text-align: right;
+}
+
+.icon-heart {
+    height: 16px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.dash-line {
+    width: min(95%, 1200px);
+    margin: 6px auto 0;
+    white-space: nowrap;
+}
+
+.dash-fill {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+
+    color: var(--color-muted);
+    font-family: var(--font-pixel);
+    line-height: 1;
+}
+
+.art-card {
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    font-size: clamp(10px, 1.6vw, 15px);
+}
+
+.art-card img {
+    width: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.art-card p {
+    margin: 0;
+    padding: 0;
+}
+
+.art-card-name {
+    color: var(--color-text);
+    font-family: var(--font-pixel);
+    font-size: 1.5em;
+    white-space: nowrap;
+}
+
+.art-card-date {
+    font-size: 1.2em;
+}
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--color-pink);
+    font-family: var(--font-pixel);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.text-link:hover {
+    color: var(--color-blue);
+}
+
+.text-link-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+
+    background-image: url("../images/ui/arrow.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.text-link:hover .text-link-icon {
+    background-image: url("../images/ui/arrow_highlight.png");
+}
+
+.pixel-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 22px solid transparent;
+    border-image: url("../images/ui/button.png") 7 fill stretch;
+
+    color: var(--color-text);
+    text-decoration: none;
+    background: transparent;
+}
+
+.pixel-button:hover {
+    border-image-source: url("../images/ui/button_highlight.png");
+}
+
+.download-button {
+    border: 18px solid transparent;
+    border-image: url("../images/ui/download-button.png") 7 fill stretch;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.download-button:hover {
+    border-image-source: url("../images/ui/download-button_highlight.png");
+}
+
+.download-button img {
+    width: 27px;
+    height: 27px;
+    display: block;
+    object-fit: contain;
+}
+
+@media (max-width: 980px) {
+    .art-card {
+        font-size: clamp(10px, 2.5vw, 20px);
+    }
+}
+
+@media (max-width: 520px) {
+    .art-card {
+        font-size: clamp(10px, 4vw, 20px);
+    }
+}

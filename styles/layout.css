@@ -1,0 +1,174 @@
+.site-header {
+    width: 100%;
+}
+
+.menu {
+    width: 100%;
+    background: var(--color-surface);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-checkbox {
+    display: none;
+}
+
+.logo {
+    width: fit-content;
+    padding: 3px 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-fumos {
+    display: flex;
+    align-items: flex-start;
+}
+
+.logo-fumo {
+    width: 64px;
+    height: 64px;
+    margin-right: -5px;
+}
+
+.logo-fumo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.menu-toggle {
+    display: none;
+
+    width: 36px;
+    height: 36px;
+
+    cursor: pointer;
+    background-image: url("../images/ui/hamburger.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.menu-items {
+    width: fit-content;
+    margin: 5px 7px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+}
+
+.menu-item {
+    width: 120px;
+    height: 60px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.menu-item:hover {
+    background: var(--color-surface-hover);
+}
+
+.menu-item.is-active {
+    color: var(--color-pink);
+}
+
+.menu-item.is-active::after {
+    content: "";
+    position: absolute;
+    left: 10%;
+    bottom: 3px;
+
+    width: 80%;
+    height: 4px;
+
+    background: var(--color-pink);
+    border-radius: 2px;
+}
+
+.page {
+    width: 100%;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 15px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.footer {
+    width: 100%;
+    height: clamp(32px, 6vw, 45px);
+    padding: 0 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(8px, 2vw, 16px);
+}
+
+.footer p {
+    font-family: var(--font-title);
+    font-size: clamp(12px, 3.5vw, 16px);
+    white-space: nowrap;
+}
+
+.footer img {
+    height: clamp(12px, 3.5vw, 19px);
+}
+
+@media (max-width: 650px) {
+    .menu {
+        flex-direction: column;
+    }
+
+    .logo {
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu-items {
+        width: 100%;
+        max-height: 0;
+        margin: 0;
+
+        flex-direction: column;
+        gap: 0;
+
+        overflow: hidden;
+        transition: max-height 0.25s ease;
+    }
+
+    .menu-item {
+        width: 100%;
+        border-top: 0.5mm solid var(--color-border);
+    }
+
+    .menu-checkbox:checked ~ .menu-items {
+        max-height: 500px;
+    }
+
+    .menu-checkbox:checked ~ .logo .menu-toggle {
+        background-image: url("../images/ui/x.png");
+    }
+}

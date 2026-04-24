@@ -1,25 +1,29 @@
 import { loadArtworkData } from "./data.js";
 import { formatArtworkDate } from "./dates.js";
+import {
+    getArtworkDisplayName,
+    getArtworkModifiedDate,
+} from "./artworks.js";
 
-function updateSubtitleFill() {
-    document.querySelectorAll(".subtitle").forEach((subtitle) => {
-        const content = subtitle.querySelector(".subtitle-content");
-        const fill = subtitle.querySelector(".subtitle-fill");
-        const link = subtitle.querySelector(".subtitle-link");
+function updateLatestHeadingFill() {
+    document.querySelectorAll(".latest-heading").forEach((heading) => {
+        const text = heading.querySelector(".latest-heading-text");
+        const fill = heading.querySelector(".latest-heading-fill");
+        const link = heading.querySelector(".latest-heading-link");
 
-        if (!content || !fill) return;
+        if (!text || !fill) return;
 
-        const subtitleStyles = getComputedStyle(subtitle);
-        const gap = parseFloat(subtitleStyles.columnGap || subtitleStyles.gap || 0);
+        const styles = getComputedStyle(heading);
+        const gap = parseFloat(styles.columnGap || styles.gap || 0);
 
-        const subtitleWidth = subtitle.clientWidth;
-        const contentWidth = content.getBoundingClientRect().width;
+        const headingWidth = heading.clientWidth;
+        const textWidth = text.getBoundingClientRect().width;
         const linkWidth = link ? link.getBoundingClientRect().width : 0;
 
         const totalGapWidth = link ? gap * 2 : gap;
         const available = Math.max(
-        0,
-        subtitleWidth - contentWidth - linkWidth - totalGapWidth
+            0,
+            headingWidth - textWidth - linkWidth - totalGapWidth
         );
 
         const fillStyles = getComputedStyle(fill);
@@ -48,29 +52,39 @@ function updateSubtitleFill() {
         fill.style.width = `${count * colonWidth}px`;
         fill.style.flex = "0 0 auto";
     });
-    }
+}
 
-    function createLatestArtworkCard(item) {
+function createLatestArtworkCard(item) {
     const frame = document.createElement("div");
-    frame.className = "panel frame";
+    frame.className = "panel art-card";
 
-    const displayName = item.latest || item.name;
+    const displayName = getArtworkDisplayName(item);
+    const displayDate = getArtworkModifiedDate(item);
 
     frame.innerHTML = `
         <img src="${item.image}" alt="${displayName}">
-        <p class="name">${displayName}</p>
-        <p class="date">${formatArtworkDate(item.date)}</p>
+        <p class="art-card-name">${displayName}</p>
+        <p class="art-card-date">${formatArtworkDate(displayDate)}</p>
     `;
 
     return frame;
-    }
+}
 
-    async function renderLatestArtworks() {
+async function renderLatestArtworks() {
     const container = document.getElementById("latest-artworks");
     if (!container) return;
 
     const artworks = await loadArtworkData();
-    const latestArtworks = artworks.slice(0, 4);
+
+    const latestArtworks = artworks
+        .slice()
+        .sort((a, b) => {
+            const dateA = new Date(getArtworkModifiedDate(a));
+            const dateB = new Date(getArtworkModifiedDate(b));
+
+            return dateB - dateA;
+        })
+        .slice(0, 4);
 
     container.innerHTML = "";
 
@@ -79,7 +93,11 @@ function updateSubtitleFill() {
     });
 }
 
-window.addEventListener("load", updateSubtitleFill);
-window.addEventListener("resize", updateSubtitleFill);
+window.addEventListener("load", updateLatestHeadingFill);
+window.addEventListener("resize", updateLatestHeadingFill);
+
+if (document.fonts) {
+    document.fonts.ready.then(updateLatestHeadingFill);
+}
 
 renderLatestArtworks();
