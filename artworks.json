@@ -1,12 +1,13 @@
 [
   {
     "image": "images/fumos_padded/reimu.png",
-    "name": "Reimu v2",
+    "name": "Reimu",
+    "latest": "Reimu v2",
     "character": "Reimu Hakurei",
     "download": "downloads/reimu.zip",
     "date": "2025-08-08",
-    "gradStart": "#d9b0b0",
-    "gradEnd": "#f3e3c7"
+    "gradStart": "#d8a3a3",
+    "gradEnd": "#f5e6d6"
   },
   {
     "image": "images/fumos_padded/chimata.png",
@@ -14,8 +15,8 @@
     "character": "Chimata Tenkyuu",
     "download": "downloads/chimata.zip",
     "date": "2025-03-18",
-    "gradStart": "#c8c1df",
-    "gradEnd": "#e8d8c4"
+    "gradStart": "#7a6ad6",
+    "gradEnd": "#e6a85c"
   },
   {
     "image": "images/fumos_padded/yukari.png",
@@ -59,8 +60,8 @@
     "character": "Sanae Kochiya",
     "download": "downloads/sanae.zip",
     "date": "2024-12-11",
-    "gradStart": "#a8cbb8",
-    "gradEnd": "#d9efe8"
+    "gradStart": "#9fcfb8",
+    "gradEnd": "#e2f3ec"
   },
   {
     "image": "images/fumos_padded/youmu.png",
@@ -86,8 +87,8 @@
     "character": "Utsuho Reiuji",
     "download": "downloads/okuu.zip",
     "date": "2024-12-07",
-    "gradStart": "#c99f78",
-    "gradEnd": "#e6d2a8"
+    "gradStart": "#d3a07a",
+    "gradEnd": "#f0d7a8"
   },
   {
     "image": "images/fumos_padded/suwako.png",
@@ -104,8 +105,8 @@
     "character": "Sakuya Izayoi",
     "download": "downloads/sakuya.zip",
     "date": "2024-12-05",
-    "gradStart": "#aebdcb",
-    "gradEnd": "#e4e8ee"
+    "gradStart": "#a9bccf",
+    "gradEnd": "#eef2f7"
   },
   {
     "image": "images/fumos_padded/remilia.png",
@@ -113,8 +114,8 @@
     "character": "Remilia Scarlet",
     "download": "downloads/remilia.zip",
     "date": "2024-12-02",
-    "gradStart": "#a68aa8",
-    "gradEnd": "#d7bcc7"
+    "gradStart": "#a184a6",
+    "gradEnd": "#e0c6cf"
   },
   {
     "image": "images/fumos_padded/flandre.png",
@@ -122,8 +123,8 @@
     "character": "Flandre Scarlet",
     "download": "downloads/flandre.zip",
     "date": "2024-11-29",
-    "gradStart": "#d7b86a",
-    "gradEnd": "#e6c8b8"
+  "gradStart": "#c93a3a",
+  "gradEnd": "#f0d36b"
   },
   {
     "image": "images/fumos_padded/satori.png",
@@ -167,7 +168,17 @@
     "character": "Marisa Kirisame",
     "download": "downloads/marisa.zip",
     "date": "2024-11-27",
-    "gradStart": "#d6be72",
-    "gradEnd": "#ddd4c5"
+    "gradStart": "#e0c46f",
+    "gradEnd": "#e7dccb"
+  },
+  {
+    "image": "images/fumos_padded/rumia.png",
+    "name": "Rumia",
+    "latest": "Rumia v2",
+    "character": "Rumia",
+    "download": "downloads/rumia.zip",
+    "date": "2026-11-26",
+    "gradStart": "#2b1a3a",
+    "gradEnd": "#a83a3a"
   }
 ]

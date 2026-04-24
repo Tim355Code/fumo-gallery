@@ -65,9 +65,11 @@ async function loadArtworks() {
             const frame = document.createElement('div');
             frame.className = 'panel frame';
 
+            const name = item.latest || item.name;
+
             frame.innerHTML = `
-                <img src="${item.image}" alt="${item.name}">
-                <p class="name">${item.name}</p>
+                <img src="${item.image}" alt="${name}">
+                <p class="name">${name}</p>
                 <p class="date">${formatDate(item.date)}</p>
             `;
 

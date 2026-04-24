@@ -55,7 +55,7 @@ let targetStart = { ...currentStart };
 let targetEnd = { ...currentEnd };
 
 let lastTime = performance.now();
-const colorSpeedPerSecond = 100;
+const colorSpeedPerSecond = 350;
 
 function renderGradient() {
     gallery.style.background = `linear-gradient(to bottom, ${rgbToHex(currentStart)}, ${rgbToHex(currentEnd)})`;
@@ -190,7 +190,10 @@ async function loadGalleryData() {
     const data = await loadAppData();
     buildGallery(data);
     currentIndex = 0;
+
     updateGallery();
+    currentStart = hexToRgb(data[0].gradStart || FALLBACK_GRAD_START);
+    currentEnd = hexToRgb(data[0].gradEnd || FALLBACK_GRAD_END);
 }
 
 // init
