@@ -1,17 +1,21 @@
-window.myAppData = null;
+let artworkData = null;
 
-window.loadAppData = async function () {
-  if (!window.artworkData) {
-    const response = await fetch("artworks.json?v=" + Date.now());
+export async function loadArtworkData() {
+    if (artworkData) {
+      return artworkData;
+    }
+
+    const response = await fetch("artworks.json");
+
+    if (!response.ok) {
+      throw new Error(`Could not load artworks.json: ${response.status}`);
+    }
+
     const data = await response.json();
 
-    data.sort(function(a, b) {
-        const dateA = new Date(a.date);
-        const dateB = new Date(b.date);
-        return dateB - dateA;
-    });
+    artworkData = data
+      .slice()
+      .sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    window.artworkData = data;
-  }
-  return window.artworkData;
-};
+    return artworkData;
+}
