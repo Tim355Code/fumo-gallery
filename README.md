@@ -20,14 +20,12 @@ All pixel art on the site is made by me and is free to use for both personal and
 ### Please do not:
 - Claim the art as your own
 - Resell or redistribute the raw art files by themselves
-- Use the art for hateful or harmful conten
+- Use the art for hateful or harmful content
 
 Credit is appreciated, but not required.
 
 ## Repository
-This repository contains the source code and assets for the FumoFumos Archives website.
-
-It exists to host the site on GitHub Pages and keep the art collection easy to browse and download.
+This repository contains the source code and assets for the FumoFumos Archives website. It exists to host the site on GitHub Pages and keep the art collection easy to browse and download.
 
 ## Tech
 
