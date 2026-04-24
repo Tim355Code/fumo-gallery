@@ -1,0 +1,51 @@
+.mode-btn {
+    border: 12px solid transparent;
+    border-image: url("../images/ui/select-button.png") 7 fill stretch;
+    background: transparent;
+
+    padding: 0;
+    margin: 0;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mode-btn:hover {
+    border-image: url("../images/ui/select-button_hover.png") 7 fill stretch;
+}
+
+.mode-btn.active {
+    border-image: url("../images/ui/select-button_selected.png") 7 fill stretch;
+}
+
+.mode-btn img {
+    width: 30px;
+    display: block;
+    flex: 0 0 auto;
+}
+
+.mode-views {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.view {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.view.active-view {
+    display: flex;
+}
+
+.frame.search-highlight {
+    border-image-source: url("../images/ui/panel_highlight.png");
+}

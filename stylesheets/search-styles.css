@@ -1,6 +1,14 @@
+.top-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 .search-wrapper {
     position: relative;
-    width: min(320px, 98%);
+    width: min(650px, 98%);
 }
 
 .search-input {
@@ -15,7 +23,7 @@
     color: white;
     caret-color: white;
 
-    border: 10px solid transparent;
+    border: 12px solid transparent;
     border-image: url("../images/ui/panel.png") 7 fill stretch;
     background: transparent;
 }

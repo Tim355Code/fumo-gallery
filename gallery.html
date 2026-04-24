@@ -7,6 +7,17 @@
         <link rel="stylesheet" href="background-styles.css">
         <link rel="stylesheet" href="stylesheets/gallery-styles.css">
         <link rel="stylesheet" href="stylesheets/search-styles.css">
+        <link rel="stylesheet" href="stylesheets/modes-styles.css">
+
+        <!-- Preload hover assets -->
+        <link rel="preload" as="image" href="images/ui/download-button_highlight.png">
+        <link rel="preload" as="image" href="images/ui/download-button_highlight2.png">
+        <link rel="preload" as="image" href="images/ui/select-button_hover.png">
+        <link rel="preload" as="image" href="images/ui/select-button_selected.png">
+        <link rel="preload" as="image" href="images/ui/large-arrow_highlight.png">
+        <link rel="preload" as="image" href="images/ui/x.png">
+        <link rel="preload" as="image" href="images/ui/panel_highlight.png">
+
         <script type="text/javascript" src="scripts/data.js" defer></script>
         <script type="text/javascript" src="scripts/decor.js" defer></script>
         <script type="text/javascript" src="scripts/search.js" defer></script>
@@ -37,16 +48,20 @@
         </header>
 
         <div class="main">
-            <div class="search-wrapper">
-                <img src="images/ui/search.png" alt="" class="search-icon">
-                <input type="search" placeholder="Search..." class="search-input" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off">
-                <button class="clear-btn" type="button">x</button>
+            <div class="top-container">
+                <div class="search-wrapper">
+                    <img src="images/ui/search.png" alt="" class="search-icon">
+                    <input type="search" placeholder="Search..." class="search-input" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off">
+                    <button class="clear-btn" type="button">x</button>
 
-                <div class="search-results">
-                    <button class="search-result" type="button">Reimu Hakurei</button>
-                    <button class="search-result" type="button">Marisa Kirisame</button>
-                    <button class="search-result" type="button">Sakuya Izayoi</button>
+                    <div class="search-results">
+                        <button class="search-result" type="button">Reimu Hakurei</button>
+                        <button class="search-result" type="button">Marisa Kirisame</button>
+                        <button class="search-result" type="button">Sakuya Izayoi</button>
+                    </div>
                 </div>
+                <button class="mode-btn single active"><img src="images/ui/icon-single.png"></button>
+                <button class="mode-btn multiple"><img src="images/ui/icon-many.png"></button>
             </div>
             <div class="line">
                 <p class="title">
@@ -55,29 +70,35 @@
                     <span class="fill right"></span>
                 </p>
             </div>
+            <div class="mode-views">
+                <!-- SINGLE MODE -->
+                <div class="view single-view active-view">
+                    <div class="gallery-container panel">
+                        <a class="download-btn" href="" download><img src="images/ui/download.png" alt="Download icon"></a>
+                        <button class="nav-left" type="button" aria-label="Previous image"></button>
 
-            <div class="gallery-container panel">
-                <a class="download-btn" href="" download>
-                    <img src="images/ui/download.png" alt="Download icon">
-                </a>
+                        <div class="gallery-wrapper">
+                            <div class="gallery" id="gallery">
+                                <div class="gallery-track"></div>
+                            </div>
 
-                <button class="nav-left" type="button" aria-label="Previous image"></button>
+                            <div class="gallery-text">
+                                <p class="title" id="name">Name</p>
+                                <p class="subtitle" id="date">Date</p>
+                            </div>
+                            <a class="download-btn-mobile" href="" download>
+                                <img src="images/ui/download.png" alt="Download icon">
+                            </a>
+                        </div>
 
-                <div class="gallery-wrapper">
-                    <div class="gallery" id="gallery">
-                        <div class="gallery-track"></div>
+                        <button class="nav-right" type="button" aria-label="Next image"></button>
                     </div>
-
-                    <div class="gallery-text">
-                        <p class="title" id="name">Name</p>
-                        <p class="subtitle" id="date">Date</p>
-                    </div>
-                    <a class="download-btn-mobile" href="" download>
-                        <img src="images/ui/download.png" alt="Download icon">
-                    </a>
                 </div>
 
-                <button class="nav-right" type="button" aria-label="Next image"></button>
+                <!-- MULTIPLE MODE -->
+                <div class="view multiple-view">
+                    <div class="all-artworks latest" id="all-artworks"></div>
+                </div>
             </div>
 
             <a class="download-all-btn" href="downloads/all.zip" download>

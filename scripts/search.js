@@ -61,6 +61,27 @@ function setupSearch() {
         clearSearch();
         input.blur();
 
+        const isMultipleView = multipleView.classList.contains('active-view');
+
+        if (isMultipleView) {
+            const target = document.querySelector(`#all-artworks .frame[data-index="${index}"]`);
+
+            if (!target) return;
+
+            document
+                .querySelectorAll('#all-artworks .frame')
+                .forEach(frame => frame.classList.remove('search-highlight'));
+
+            target.classList.add('search-highlight');
+
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+
+            return;
+        }
+
         if (typeof window.goToSlide === 'function') {
             window.goToSlide(index);
         }
@@ -72,4 +93,52 @@ function setupSearch() {
     });
 }
 
+async function loadAllArtworks() {
+    const artworks = (await loadAppData())
+        .map((item, index) => ({ ...item, originalIndex: index }));
+
+    artworks.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    const container = document.getElementById('all-artworks');
+    container.innerHTML = '';
+
+    artworks.forEach(item => {
+        const frame = document.createElement('div');
+        frame.className = 'panel frame';
+        frame.dataset.index = item.originalIndex;
+
+        const name = item.latest || item.name;
+
+        frame.innerHTML = `
+            <img src="${item.image}" alt="${name}">
+            <p class="name">${name}</p>
+            <p class="date">${formatDate(item.date)}</p>
+        `;
+
+        container.appendChild(frame);
+    });
+}
+
 setupSearch();
+loadAllArtworks();
+
+const buttons = document.querySelectorAll('.mode-btn');
+
+const singleView = document.querySelector('.single-view');
+const multipleView = document.querySelector('.multiple-view');
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        buttons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        if (button.classList.contains('single')) {
+            singleView.classList.add('active-view');
+            multipleView.classList.remove('active-view');
+        } 
+        else {
+            multipleView.classList.add('active-view');
+            singleView.classList.remove('active-view');
+        }
+    });
+});

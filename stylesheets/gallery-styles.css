@@ -167,8 +167,8 @@
 }
 
 .gallery-text .title {
-    font-family: 'Kongtext';
-    font-size: 19px;
+    font-family: 'Pixelify-Sans';
+    font-size: 24px;
     padding: 4px;
 }
 
@@ -255,6 +255,7 @@
     object-fit: contain;
 }
 
+/* MULTIPLE MODE */
 @media screen and (max-width: 650px) {
     .gallery-container {
         width: min(95%, 1100px);
@@ -273,3 +274,69 @@
         display: flex;
     }
 }
+
+.latest {
+    display: grid;
+    width: min(90%, 1000px);
+    gap: 25px 20px;
+
+    grid-template-columns: repeat(4, minmax(230px, 1fr));
+
+    justify-content: center;
+}
+.frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    min-width: 0;
+    font-size: clamp(10px, 1.6vw, 15px);
+}
+
+.frame img {
+    width: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.frame p {
+    margin: 0;
+    padding: 0;
+}
+
+.frame .name {
+    color: white;
+    font-family: 'Pixelify-Sans';
+    white-space: nowrap;
+    font-size: 1.5em;
+}
+
+.frame .date {
+    font-size: 1.2em;
+}
+
+/* when 4 x 230px no longer fits comfortably, jump directly to 2 columns */
+@media (max-width: 980px) {
+    .latest {
+        width: min(90%, 720px);
+        grid-template-columns: repeat(2, minmax(230px, 1fr));
+    }
+
+    .frame {
+        font-size: clamp(10px, 2.5vw, 20px);
+    }
+}
+
+/* only for really tiny screens */
+@media (max-width: 520px) {
+    .latest {
+        grid-template-columns: 1fr;
+        width: 80%;
+    }
+    .frame {
+        font-size: clamp(10px, 4vw, 20px);
+    }
+}
+
