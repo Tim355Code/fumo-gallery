@@ -125,8 +125,8 @@
     "character": "Flandre Scarlet",
     "download": "downloads/flandre.zip",
     "creationDate": "2024-11-29",
-  "gradStart": "#c93a3a",
-  "gradEnd": "#f0d36b"
+    "gradStart": "#c93a3a",
+    "gradEnd": "#f0d36b"
   },
   {
     "image": "images/fumos_padded/satori.png",
@@ -182,5 +182,16 @@
     "creationDate": "2026-04-24",
     "gradStart": "#2b1a3a",
     "gradEnd": "#a83a3a"
+  },
+  {
+    "image": "images/fumos_padded/cirno.png",
+    "name": "Cirno",
+    "version": "2",
+    "character": "Cirno",
+    "download": "downloads/cirno.zip",
+    "creationDate": "2024-11-28",
+    "modifiedDate": "2026-04-26",
+    "gradStart": "#a3c4e0",
+    "gradEnd": "#e0f0f7"
   }
 ]
