@@ -186,11 +186,9 @@
   {
     "image": "images/fumos_padded/cirno.png",
     "name": "Cirno",
-    "version": "2",
     "character": "Cirno",
     "download": "downloads/cirno.zip",
-    "creationDate": "2024-11-28",
-    "modifiedDate": "2026-04-26",
+    "creationDate": "2026-04-26",
     "gradStart": "#a3c4e0",
     "gradEnd": "#e0f0f7"
   }
