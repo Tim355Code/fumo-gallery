@@ -167,6 +167,7 @@
   {
     "image": "images/fumos_padded/marisa.png",
     "name": "Marisa",
+    "version": "2",
     "character": "Marisa Kirisame",
     "download": "downloads/marisa.zip",
     "creationDate": "2026-04-28",
