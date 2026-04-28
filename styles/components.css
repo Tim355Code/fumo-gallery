@@ -203,3 +203,15 @@
         font-size: clamp(10px, 4vw, 20px);
     }
 }
+
+.pixel-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.pixel-scroll::-webkit-scrollbar-thumb {
+    background: var(--color-muted);
+}
+
+.pixel-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--color-pink);
+}

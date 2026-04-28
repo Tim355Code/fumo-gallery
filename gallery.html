@@ -54,7 +54,6 @@
             <div class="gallery-toolbar">
                 <div class="search">
                     <img src="images/ui/search.png" alt="" class="search-icon">
-
                     <input
                         type="search"
                         placeholder="Search..."
@@ -64,9 +63,8 @@
                         autocorrect="off"
                         autocapitalize="off"
                     >
-
                     <button class="search-clear" type="button">x</button>
-                    <div class="search-results"></div>
+                    <div class="search-results pixel-scroll"></div>
                 </div>
 
                 <button class="mode-button single is-active" type="button">
@@ -119,7 +117,18 @@
                 </section>
 
                 <section class="gallery-view multiple-view">
-                    <div class="gallery-grid" id="all-artworks"></div>
+                    <div class="gallery-scroll pixel-scroll">
+                        <div class="gallery-grid" id="all-artworks">
+                            <!-- <div class="panel art-card gallery-card" data-index="0">
+                                <a class="download-button gallery-card-download" href="images/fumos_padded/marisa.png" download>
+                                    <img src="images/ui/download.png" alt="Download">
+                                </a>
+                                <img src="images/fumos_padded/marisa.png" alt="Marisa Kirisame">
+                                <p class="art-card-name">Marisa</p>
+                                <p class="art-card-date">Mar 12, 2024</p>
+                            </div> -->
+                        </div>
+                    </div>
                 </section>
             </div>
 

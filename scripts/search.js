@@ -23,17 +23,47 @@ export function createSearchController({
         return value.replace(/[^a-zA-Z0-9 ]/g, "");
     }
 
+    function getSearchParts(item) {
+        return [
+            item.character || "",
+            item.name || "",
+        ]
+            .join(" ")
+            .toLowerCase()
+            .split(/\s+/)
+            .filter(Boolean);
+    }
+
+    function getSearchScore(item, query) {
+        const character = item.character?.toLowerCase() || "";
+        const name = item.name?.toLowerCase() || "";
+        const parts = getSearchParts(item);
+
+        if (character.startsWith(query)) return 0;
+        if (name.startsWith(query)) return 1;
+
+        if (parts.some((part) => part.startsWith(query))) return 2;
+
+        if (character.includes(query)) return 3;
+        if (name.includes(query)) return 4;
+
+        return Infinity;
+    }
+
     function getMatches(query) {
         return data
             .map((item, index) => ({
                 ...item,
                 originalIndex: index,
+                searchScore: getSearchScore(item, query),
             }))
-            .filter((item) => {
-                const character = item.character?.toLowerCase() || "";
-                const name = item.name?.toLowerCase() || "";
+            .filter((item) => item.searchScore !== Infinity)
+            .sort((a, b) => {
+                if (a.searchScore !== b.searchScore) {
+                    return a.searchScore - b.searchScore;
+                }
 
-                return character.includes(query) || name.includes(query);
+                return a.character.localeCompare(b.character);
             })
             .slice(0, 8);
     }
@@ -77,6 +107,17 @@ export function createSearchController({
 
         renderResults(matches);
         wrapper.classList.add("show-results");
+    });
+
+    input.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter") return;
+        if (!wrapper.classList.contains("show-results")) return;
+
+        const firstResult = results.querySelector(".search-result");
+        if (!firstResult) return;
+
+        event.preventDefault();
+        firstResult.click();
     });
 
     results.addEventListener("click", (event) => {

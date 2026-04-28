@@ -11,13 +11,19 @@ import {
 function createArtworkGridCard(item, index) {
     const frame = document.createElement("div");
 
-    frame.className = "panel art-card";
+    frame.className = "panel art-card gallery-card";
     frame.dataset.index = index;
 
     const displayName = getArtworkDisplayName(item);
+    const imageUrl = item.image;
+    const downloadUrl = item.download;
 
     frame.innerHTML = `
-        <img src="${item.image}" alt="${displayName}">
+        <a class="download-button gallery-card-download" href="${downloadUrl}" download>
+            <img src="images/ui/download.png" alt="Download">
+        </a>
+
+        <img src="${imageUrl}" alt="${displayName}">
         <p class="art-card-name">${displayName}</p>
         <p class="art-card-date">${formatArtworkDate(getArtworkCreationDate(item))}</p>
     `;
@@ -26,6 +32,8 @@ function createArtworkGridCard(item, index) {
 }
 
 function highlightGridItem(index) {
+    const scrollArea = document.querySelector(".gallery-scroll");
+
     const target = document.querySelector(
         `#all-artworks .art-card[data-index="${index}"]`
     );
@@ -38,10 +46,26 @@ function highlightGridItem(index) {
 
     target.classList.add("search-highlight");
 
-    target.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-    });
+    if (scrollArea) {
+        const scrollAreaRect = scrollArea.getBoundingClientRect();
+        const targetRect = target.getBoundingClientRect();
+
+        const offset =
+            targetRect.top -
+            scrollAreaRect.top -
+            scrollArea.clientHeight / 2 +
+            target.clientHeight / 2;
+
+        scrollArea.scrollTo({
+            top: scrollArea.scrollTop + offset,
+            behavior: "smooth",
+        });
+    } else {
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+        });
+    }
 }
 
 function renderArtworkGrid(data) {
