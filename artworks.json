@@ -170,7 +170,7 @@
     "version": "2",
     "character": "Marisa Kirisame",
     "download": "downloads/marisa.zip",
-    "creationDate": "2026-04-28",
+    "creationDate": "2026-04-27",
     "gradStart": "#e0c46f",
     "gradEnd": "#e7dccb"
   },
@@ -185,12 +185,12 @@
     "gradEnd": "#a83a3a"
   },
   {
-    "image": "images/fumos_padded/cirno.png",
-    "name": "Cirno",
-    "character": "Cirno",
-    "download": "downloads/cirno.zip",
-    "creationDate": "2026-04-26",
-    "gradStart": "#a3c4e0",
-    "gradEnd": "#e0f0f7"
+    "image": "images/fumos_padded/aya.png",
+    "name": "Aya",
+    "character": "Aya Shameimaru",
+    "download": "downloads/aya.zip",
+    "creationDate": "2026-04-28",
+    "gradStart": "#ff9494",
+    "gradEnd": "#f7dada"
   }
 ]
