@@ -185,6 +185,15 @@
     "gradEnd": "#a83a3a"
   },
   {
+    "image": "images/fumos_padded/cirno.png",
+    "name": "Cirno",
+    "character": "Cirno",
+    "download": "downloads/cirno.zip",
+    "creationDate": "2026-04-26",
+    "gradStart": "#a3c4e0",
+    "gradEnd": "#e0f0f7"
+  },
+  {
     "image": "images/fumos_padded/aya.png",
     "name": "Aya",
     "character": "Aya Shameimaru",
