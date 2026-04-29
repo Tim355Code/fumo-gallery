@@ -201,5 +201,14 @@
     "creationDate": "2026-04-28",
     "gradStart": "#ff9494",
     "gradEnd": "#f7dada"
+  },
+  {
+    "image": "images/fumos_padded/shion.png",
+    "name": "Shion",
+    "character": "Shion Yorigami",
+    "download": "downloads/shion.zip",
+    "creationDate": "2026-04-30",
+    "gradStart": "#7f8fa6",
+    "gradEnd": "#d6dde6"
   }
 ]
