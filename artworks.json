@@ -125,8 +125,8 @@
     "character": "Flandre Scarlet",
     "download": "downloads/flandre.zip",
     "creationDate": "2024-11-29",
-    "gradStart": "#c93a3a",
-    "gradEnd": "#f0d36b"
+    "gradStart": "#d88a8a",
+    "gradEnd": "#f2e2a8"
   },
   {
     "image": "images/fumos_padded/satori.png",
@@ -207,8 +207,17 @@
     "name": "Shion",
     "character": "Shion Yorigami",
     "download": "downloads/shion.zip",
-    "creationDate": "2026-04-30",
+    "creationDate": "2026-04-29",
     "gradStart": "#7f8fa6",
     "gradEnd": "#d6dde6"
+  },
+  {
+    "image": "images/fumos_padded/clownpiece.png",
+    "name": "Clownpiece",
+    "character": "Clownpiece",
+    "download": "downloads/clownpiece.zip",
+    "creationDate": "2026-04-30",
+    "gradStart": "#e88a3a",
+    "gradEnd": "#f2e6d8"
   }
 ]
