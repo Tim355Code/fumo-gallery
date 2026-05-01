@@ -219,5 +219,14 @@
     "creationDate": "2026-04-30",
     "gradStart": "#e88a3a",
     "gradEnd": "#f2e6d8"
+  },
+  {
+  "image": "images/fumos_padded/yuuka.png",
+    "name": "Yuuka",
+    "character": "Yuuka Kazami",
+    "download": "downloads/yuuka.zip",
+    "creationDate": "2026-05-01",
+    "gradStart": "#7ea883",
+    "gradEnd": "#e6d89a"
   }
 ]
