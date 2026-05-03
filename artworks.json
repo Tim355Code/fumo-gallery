@@ -228,5 +228,14 @@
     "creationDate": "2026-05-01",
     "gradStart": "#7ea883",
     "gradEnd": "#e6d89a"
+  },
+  {
+    "image": "images/fumos_padded/nitori.png",
+    "name": "Nitori",
+    "character": "Nitori Kawashiro",
+    "download": "downloads/nitori.zip",
+    "creationDate": "2026-05-03",
+    "gradStart": "#5fa8a6",
+    "gradEnd": "#d7efe7"
   }
 ]
