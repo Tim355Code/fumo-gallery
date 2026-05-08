@@ -237,5 +237,14 @@
     "creationDate": "2026-05-03",
     "gradStart": "#5fa8a6",
     "gradEnd": "#d7efe7"
+  },
+  {
+    "image": "images/fumos_padded/nazrin.png",
+    "name": "Nazrin",
+    "character": "Nazrin",
+    "download": "downloads/nazrin.zip",
+    "creationDate": "2026-05-08",
+    "gradStart": "#9a9a9a",
+    "gradEnd": "#e8d9a8"
   }
 ]
