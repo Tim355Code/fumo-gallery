@@ -52,8 +52,15 @@ export function createGalleryController({ root, data }) {
     const track = root.querySelector(".gallery-track");
     const prevButton = root.querySelector(".gallery-arrow.previous");
     const nextButton = root.querySelector(".gallery-arrow.next");
+
     const nameText = root.querySelector("#name");
-    const dateText = root.querySelector("#date");
+    const assetVersionText = root.querySelector("#asset-version");
+    const modificationDateText = root.querySelector("#modification-date");
+    const creationDateText = root.querySelector("#creation-date");
+
+    const variantSelect = root.querySelector("#variant-select");
+    const variantButton = root.querySelector("#variant-button");
+    const variantOptions = root.querySelector("#variant-options");
 
     const downloadButtons = [
         root.querySelector(".gallery-download"),
@@ -68,6 +75,7 @@ export function createGalleryController({ root, data }) {
     let targetStart = { ...currentStart };
     let targetEnd = { ...currentEnd };
     let lastTime = performance.now();
+    let currentVariantIndex = 0;
 
     function renderGradient() {
         gallery.style.background = `
@@ -91,15 +99,50 @@ export function createGalleryController({ root, data }) {
     function createGalleryItem(item) {
         const slide = document.createElement("div");
 
+        const defaultVariant = item.variants[0];
+
         slide.className = "gallery-item";
         slide.dataset.gradStart = item.gradStart || FALLBACK_GRAD_START;
         slide.dataset.gradEnd = item.gradEnd || FALLBACK_GRAD_END;
 
         slide.innerHTML = `
-            <img src="${item.image}" alt="${item.name}">
+            <img src="${defaultVariant.image}" alt="${item.name}">
         `;
 
         return slide;
+    }
+
+    function renderVariantDropdown(activeData) {
+        if (!variantSelect || !variantButton || !variantOptions) return;
+
+        const variants = activeData.variants ?? [];
+
+        variantOptions.innerHTML = "";
+
+        variants.forEach((variant, index) => {
+            const option = document.createElement("button");
+
+            option.className = "variant-option";
+            option.type = "button";
+            option.textContent = variant.name;
+
+            if (index === currentVariantIndex) {
+                option.classList.add("is-active");
+            }
+
+            option.addEventListener("click", () => {
+                currentVariantIndex = index;
+                variantSelect.classList.remove("is-open");
+                updateGallery();
+            });
+
+            variantOptions.appendChild(option);
+        });
+
+        const activeVariant = variants[currentVariantIndex];
+        variantButton.textContent = activeVariant?.name ?? "V1";
+
+        variantSelect.classList.toggle("is-disabled", variants.length <= 1);
     }
 
     function buildGallery() {
@@ -119,9 +162,16 @@ export function createGalleryController({ root, data }) {
 
         const activeSlide = slides[currentIndex];
         const activeData = data[currentIndex];
+        const activeVariant = activeData.variants[currentVariantIndex] ?? activeData.variants[0];
 
         targetStart = hexToRgb(activeSlide.dataset.gradStart || FALLBACK_GRAD_START);
         targetEnd = hexToRgb(activeSlide.dataset.gradEnd || FALLBACK_GRAD_END);
+
+        const image = activeSlide.querySelector("img");
+        if (image) {
+            image.src = activeVariant.image;
+            image.alt = `${activeData.name} ${activeVariant.name}`;
+        }
 
         downloadButtons.forEach((button) => {
             button.href = activeData.download;
@@ -129,20 +179,28 @@ export function createGalleryController({ root, data }) {
         });
 
         nameText.textContent = activeData.name;
-        dateText.textContent = formatArtworkDate(activeData.creationDate);
+
+        assetVersionText.textContent = `Asset Version ${activeVariant.assetVersion ?? 1}`;
+        modificationDateText.textContent = `Modified: ${formatArtworkDate(activeVariant.modifiedDate)}`;
+        creationDateText.textContent = `Created: ${formatArtworkDate(activeVariant.creationDate)}`;
+
+        renderVariantDropdown(activeData);
     }
 
-    function goToSlide(index) {
+    function goToSlide(index, variantIndex = 0) {
         if (!slides.length) return;
 
         currentIndex = Math.max(0, Math.min(index, slides.length - 1));
+        currentVariantIndex = variantIndex;
+
         updateGallery();
     }
 
-    function nextSlide() {
+function nextSlide() {
         if (!slides.length) return;
 
         currentIndex = (currentIndex + 1) % slides.length;
+        currentVariantIndex = 0;
         updateGallery();
     }
 
@@ -150,6 +208,7 @@ export function createGalleryController({ root, data }) {
         if (!slides.length) return;
 
         currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        currentVariantIndex = 0;
         updateGallery();
     }
 
@@ -189,6 +248,22 @@ export function createGalleryController({ root, data }) {
         );
     }
 
+    function setupVariantDropdown() {
+        if (!variantSelect || !variantButton) return;
+
+        variantButton.addEventListener("click", () => {
+            if (variantSelect.classList.contains("is-disabled")) return;
+
+            variantSelect.classList.toggle("is-open");
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!variantSelect.contains(event.target)) {
+                variantSelect.classList.remove("is-open");
+            }
+        });
+    }
+
     function init() {
         if (!gallery || !track) return;
 
@@ -203,6 +278,7 @@ export function createGalleryController({ root, data }) {
         prevButton?.addEventListener("click", prevSlide);
         nextButton?.addEventListener("click", nextSlide);
 
+        setupVariantDropdown();
         setupSwipeControls();
         updateGallery();
     }

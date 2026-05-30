@@ -34,7 +34,7 @@
 
 .home-intro-media img {
     display: block;
-    width: clamp(160px, 22vw, 240px);
+    width: clamp(160px, 22vw, 238px);
     height: auto;
 }
 

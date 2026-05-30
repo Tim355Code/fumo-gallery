@@ -210,7 +210,7 @@
 .gallery-panel {
     position: relative;
 
-    width: min(90%, 700px);
+    width: min(90%, 850px);
 
     display: flex;
     align-items: center;
@@ -257,12 +257,149 @@
 }
 
 .gallery-wrapper {
+    width: 100%;
     min-width: 0;
+    padding: 22px 0px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 500px) minmax(180px, 260px);
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+}
+
+.gallery-info {
+    min-width: 0;
+    width: 100%;
+    height: 100%;
 
     display: flex;
-    flex: 0 1 auto;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+    justify-self: stretch;
+}
+
+.gallery-caption {
+    margin-top: 0;
+    text-align: left;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.gallery-name {
+    padding: 20px 0;
+    font-family: var(--font-title);
+    font-size: 21px;
+}
+
+.gallery-date {
+    font-size: 20px;
+    opacity: 0.7;
+}
+
+#asset-version {
+    margin-top: auto;
+}
+
+.variant-select {
+    position: relative;
+    width: min(100%, 250px);
+    margin-top: 8px;
+}
+
+.variant-button {
+    width: 100%;
+    height: 42px;
+    padding: 4px 34px 0 12px;
+
+    color: var(--color-text);
+    font-size: 16px;
+    text-align: left;
+
+    border: 9px solid transparent;
+    border-image: var(--dropdown-border) 5 fill stretch;
+    background: transparent;
+}
+
+.variant-button::after {
+    content: "";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+
+    width: 16px;
+    height: 16px;
+
+    background-image: url("../images/ui/icon-dropdown.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.variant-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 20;
+
+    display: none;
+    width: 100%;
+
+    border: 10px solid transparent;
+    border-image: var(--panel-border) 7 fill stretch;
+    background: rgba(20, 20, 20, 0.96);
+}
+
+.variant-select.is-open .variant-options {
+    display: block;
+}
+
+.variant-select.is-open .variant-button::after {
+    background-image: url("../images/ui/icon-dropdown-open.png");
+}
+
+.variant-select.is-open .variant-button {
+    border-image: var(--dropdown-highlight-border) 5 fill stretch;
+}
+
+.variant-option {
+    width: 100%;
+    padding: 8px 10px;
+
+    color: var(--color-text);
+    background: transparent;
+    border: none;
+
+    text-align: left;
+    font-size: 15px;
+}
+
+.variant-option.is-active {
+    color: var(--color-pink);
+}
+
+.variant-option:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.variant-select.is-disabled .variant-button {
+    cursor: default;
+}
+
+.variant-select.is-disabled .variant-button::after {
+    opacity: 0.5;
+}
+
+.variant-select.is-disabled .variant-options {
+    display: none;
 }
 
 .gallery-stage {
@@ -270,7 +407,7 @@
 
     width: 500px;
     max-width: 100%;
-    height: 320px;
+    height: 340px;
 
     overflow: hidden;
     border-radius: 10px;
@@ -309,27 +446,6 @@
     object-fit: contain;
     user-select: none;
     pointer-events: none;
-}
-
-.gallery-caption {
-    margin-top: 10px;
-    text-align: center;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.gallery-name {
-    padding: 4px;
-    font-family: var(--font-pixel);
-    font-size: 24px;
-}
-
-.gallery-date {
-    font-size: 20px;
-    opacity: 0.7;
 }
 
 /* Multiple gallery */

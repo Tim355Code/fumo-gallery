@@ -30,6 +30,8 @@
     --panel-border: url("../images/ui/panel.png");
     --panel-highlight-border: url("../images/ui/panel_highlight.png");
     --outline-border: url("../images/ui/outline.png");
+    --dropdown-border: url("../images/ui/dropdown.png");
+    --dropdown-highlight-border: url("../images/ui/dropdown-highlight.png");
 }
 
 * {

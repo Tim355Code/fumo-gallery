@@ -4,6 +4,6 @@ export function formatArtworkDate(dateString) {
     return date.toLocaleDateString(undefined, {
         year: "numeric",
         day: "numeric",
-        month: "long",
+        month: "short",
     });
 }

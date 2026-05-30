@@ -51,13 +51,30 @@ export function createSearchController({
     }
 
     function getMatches(query) {
-        return data
-            .map((item, index) => ({
-                ...item,
-                originalIndex: index,
-                searchScore: getSearchScore(item, query),
-            }))
-            .filter((item) => item.searchScore !== Infinity)
+        const grouped = new Map();
+
+        data.forEach((item, index) => {
+            const searchScore = getSearchScore(item, query);
+            if (searchScore === Infinity) return;
+
+            const key = item.characterIndex ?? item.character ?? item.name;
+
+            if (!grouped.has(key)) {
+                grouped.set(key, {
+                    ...item,
+                    originalIndex: index,
+                    matchingIndexes: [],
+                    searchScore,
+                });
+            }
+
+            const group = grouped.get(key);
+
+            group.matchingIndexes.push(index);
+            group.searchScore = Math.min(group.searchScore, searchScore);
+        });
+
+        return [...grouped.values()]
             .sort((a, b) => {
                 if (a.searchScore !== b.searchScore) {
                     return a.searchScore - b.searchScore;
@@ -80,6 +97,7 @@ export function createSearchController({
                     <button
                         class="search-result"
                         type="button"
+                        data-indexes="${item.matchingIndexes.join(",")}"
                         data-index="${item.originalIndex}"
                     >
                         ${item.character}
@@ -126,10 +144,15 @@ export function createSearchController({
 
         const index = Number(button.dataset.index);
 
+        const indexes = button.dataset.indexes
+            .split(",")
+            .map(Number)
+            .filter((value) => !Number.isNaN(value));
+
         clearSearch();
         input.blur();
 
-        onResultSelect?.(index);
+        onResultSelect?.(index, indexes);
     });
 
     clearButton?.addEventListener("click", () => {

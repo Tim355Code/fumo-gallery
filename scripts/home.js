@@ -3,6 +3,7 @@ import { formatArtworkDate } from "./dates.js";
 import {
     getArtworkDisplayName,
     getArtworkModifiedDate,
+    getShortVariantName
 } from "./artworks.js";
 
 function updateLatestHeadingFill() {
@@ -58,7 +59,10 @@ function createLatestArtworkCard(item) {
     const frame = document.createElement("div");
     frame.className = "panel art-card";
 
-    const displayName = getArtworkDisplayName(item);
+    const variantName = getShortVariantName(item.variantName);
+    const displayName = variantName
+        ? `${getArtworkDisplayName(item)} ${variantName}`
+        : getArtworkDisplayName(item);    
     const displayDate = getArtworkModifiedDate(item);
 
     frame.innerHTML = `
@@ -74,7 +78,7 @@ async function renderLatestArtworks() {
     const container = document.getElementById("latest-artworks");
     if (!container) return;
 
-    const artworks = await loadArtworkData();
+    const { artworks } = await loadArtworkData();
 
     const latestArtworks = artworks
         .slice()

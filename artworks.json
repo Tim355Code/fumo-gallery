@@ -1,250 +1,461 @@
 [
   {
-    "image": "images/fumos_padded/reimu.png",
     "name": "Reimu",
-    "version": "2",
-    "character": "Reimu Hakurei",
     "download": "downloads/reimu.zip",
-    "creationDate": "2025-08-08",
+    "character": "Reimu Hakurei",
     "gradStart": "#d8a3a3",
-    "gradEnd": "#f5e6d6"
+    "gradEnd": "#f5e6d6",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/reimu.png",
+        "download": "downloads/reimu_v1.zip",
+        "creationDate": "2025-08-08",
+        "modifiedDate": "2025-08-08",
+        "assetVersion": 2
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/chimata.png",
     "name": "Chimata",
-    "character": "Chimata Tenkyuu",
     "download": "downloads/chimata.zip",
-    "creationDate": "2025-03-18",
+    "character": "Chimata Tenkyuu",
     "gradStart": "#7a6ad6",
-    "gradEnd": "#e6a85c"
+    "gradEnd": "#e6a85c",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/chimata.png",
+        "download": "downloads/chimata_v1.zip",
+        "creationDate": "2025-03-18",
+        "modifiedDate": "2025-03-18",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/yukari.png",
     "name": "Yukari",
-    "character": "Yukari Yakumo",
     "download": "downloads/yukari.zip",
-    "creationDate": "2025-03-17",
+    "character": "Yukari Yakumo",
     "gradStart": "#b9a7c9",
-    "gradEnd": "#ead9b8"
+    "gradEnd": "#ead9b8",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/yukari.png",
+        "download": "downloads/yukari_v1.zip",
+        "creationDate": "2025-03-17",
+        "modifiedDate": "2025-03-17",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/alice.png",
     "name": "Alice",
-    "character": "Alice Margatroid",
     "download": "downloads/alice.zip",
-    "creationDate": "2025-12-11",
-    "modifiedDate": "2026-04-24",
-    "version": "1.1",
+    "character": "Alice Margatroid",
     "gradStart": "#9fb8d4",
-    "gradEnd": "#efe2c7"
+    "gradEnd": "#efe2c7",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/alice.png",
+        "download": "downloads/alice_v1.zip",
+        "creationDate": "2025-12-11",
+        "modifiedDate": "2025-12-11",
+        "assetVersion": 2
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/meiling.png",
     "name": "Meiling",
-    "character": "Hong Meiling",
     "download": "downloads/meiling.zip",
-    "creationDate": "2025-09-16",
+    "character": "Hong Meiling",
     "gradStart": "#c89b95",
-    "gradEnd": "#d7d49c"
+    "gradEnd": "#d7d49c",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/meiling.png",
+        "download": "downloads/meiling_v1.zip",
+        "creationDate": "2025-09-16",
+        "modifiedDate": "2025-09-16",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/yuyuko.png",
     "name": "Yuyuko",
-    "character": "Yuyuko Saigyouji",
     "download": "downloads/yuyuko.zip",
-    "creationDate": "2025-08-19",
+    "character": "Yuyuko Saigyouji",
     "gradStart": "#d7bfd9",
-    "gradEnd": "#f1dee6"
+    "gradEnd": "#f1dee6",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/yuyuko.png",
+        "download": "downloads/yuyuko_v1.zip",
+        "creationDate": "2025-08-19",
+        "modifiedDate": "2025-08-19",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/sanae.png",
     "name": "Sanae",
-    "character": "Sanae Kochiya",
     "download": "downloads/sanae.zip",
-    "creationDate": "2024-12-11",
+    "character": "Sanae Kochiya",
     "gradStart": "#9fcfb8",
-    "gradEnd": "#e2f3ec"
+    "gradEnd": "#e2f3ec",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/sanae.png",
+        "download": "downloads/sanae_v1.zip",
+        "creationDate": "2024-12-11",
+        "modifiedDate": "2024-12-11",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/youmu.png",
     "name": "Youmu",
-    "character": "Youmu Konpaku",
     "download": "downloads/youmu.zip",
-    "creationDate": "2024-12-10",
+    "character": "Youmu Konpaku",
     "gradStart": "#b8d0b5",
-    "gradEnd": "#e3ece8"
+    "gradEnd": "#e3ece8",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/youmu.png",
+        "download": "downloads/youmu_v1.zip",
+        "creationDate": "2024-12-10",
+        "modifiedDate": "2024-12-10",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/mokou.png",
     "name": "Mokou",
-    "character": "Fujiwara no Mokou",
     "download": "downloads/mokou.zip",
-    "creationDate": "2024-12-09",
+    "character": "Fujiwara no Mokou",
     "gradStart": "#d3b0a0",
-    "gradEnd": "#efe1d2"
+    "gradEnd": "#efe1d2",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/mokou.png",
+        "download": "downloads/mokou_v1.zip",
+        "creationDate": "2024-12-09",
+        "modifiedDate": "2024-12-09",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/okuu.png",
     "name": "Okuu",
-    "character": "Utsuho Reiuji",
     "download": "downloads/okuu.zip",
-    "creationDate": "2024-12-07",
+    "character": "Utsuho Reiuji",
     "gradStart": "#d3a07a",
-    "gradEnd": "#f0d7a8"
+    "gradEnd": "#f0d7a8",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/okuu.png",
+        "download": "downloads/okuu_v1.zip",
+        "creationDate": "2024-12-07",
+        "modifiedDate": "2024-12-07",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/suwako.png",
     "name": "Suwako",
-    "character": "Suwako Moriya",
     "download": "downloads/suwako.zip",
-    "creationDate": "2024-12-06",
+    "character": "Suwako Moriya",
     "gradStart": "#a7b97d",
-    "gradEnd": "#d8c98f"
+    "gradEnd": "#d8c98f",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/suwako.png",
+        "download": "downloads/suwako_v1.zip",
+        "creationDate": "2024-12-06",
+        "modifiedDate": "2024-12-06",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/sakuya.png",
     "name": "Sakuya",
-    "character": "Sakuya Izayoi",
     "download": "downloads/sakuya.zip",
-    "creationDate": "2024-12-05",
+    "character": "Sakuya Izayoi",
     "gradStart": "#a9bccf",
-    "gradEnd": "#eef2f7"
+    "gradEnd": "#eef2f7",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/sakuya.png",
+        "download": "downloads/sakuya_v1.zip",
+        "creationDate": "2024-12-05",
+        "modifiedDate": "2024-12-05",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/remilia.png",
     "name": "Remilia",
-    "character": "Remilia Scarlet",
     "download": "downloads/remilia.zip",
-    "creationDate": "2024-12-02",
+    "character": "Remilia Scarlet",
     "gradStart": "#a184a6",
-    "gradEnd": "#e0c6cf"
+    "gradEnd": "#e0c6cf",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/remilia.png",
+        "download": "downloads/remilia_v1.zip",
+        "creationDate": "2024-12-02",
+        "modifiedDate": "2024-12-02",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/flandre.png",
     "name": "Flandre",
-    "character": "Flandre Scarlet",
     "download": "downloads/flandre.zip",
-    "creationDate": "2024-11-29",
+    "character": "Flandre Scarlet",
     "gradStart": "#d88a8a",
-    "gradEnd": "#f2e2a8"
+    "gradEnd": "#f2e2a8",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/flandre.png",
+        "download": "downloads/flandre_v1.zip",
+        "creationDate": "2024-11-29",
+        "modifiedDate": "2024-11-29",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/satori.png",
     "name": "Satori",
-    "character": "Satori Komeiji",
     "download": "downloads/satori.zip",
-    "creationDate": "2024-12-01",
+    "character": "Satori Komeiji",
     "gradStart": "#c4a4c8",
-    "gradEnd": "#f0d6db"
+    "gradEnd": "#f0d6db",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/satori.png",
+        "download": "downloads/satori_v1.zip",
+        "creationDate": "2024-12-01",
+        "modifiedDate": "2024-12-01",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/tewi.png",
     "name": "Tewi",
-    "character": "Tewi Inaba",
     "download": "downloads/tewi.zip",
-    "creationDate": "2024-11-30",
+    "character": "Tewi Inaba",
     "gradStart": "#d8d2c3",
-    "gradEnd": "#efe6dc"
+    "gradEnd": "#efe6dc",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/tewi.png",
+        "download": "downloads/tewi_v1.zip",
+        "creationDate": "2024-11-30",
+        "modifiedDate": "2024-11-30",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/koishi.png",
     "name": "Koishi",
-    "character": "Koishi Komeiji",
     "download": "downloads/koishi.zip",
-    "creationDate": "2024-11-30",
+    "character": "Koishi Komeiji",
     "gradStart": "#a9c99d",
-    "gradEnd": "#f0e1b8"
+    "gradEnd": "#f0e1b8",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/koishi.png",
+        "download": "downloads/koishi_v1.zip",
+        "creationDate": "2024-11-30",
+        "modifiedDate": "2024-11-30",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/reisen.png",
     "name": "Reisen",
-    "character": "Reisen Udongein Inaba",
     "download": "downloads/reisen.zip",
-    "creationDate": "2024-11-29",
+    "character": "Reisen Udongein Inaba",
     "gradStart": "#c2b2d8",
-    "gradEnd": "#e8d7d8"
+    "gradEnd": "#e8d7d8",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/reisen.png",
+        "download": "downloads/reisen_v1.zip",
+        "creationDate": "2024-11-29",
+        "modifiedDate": "2024-11-29",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/marisa.png",
     "name": "Marisa",
-    "version": "2",
-    "character": "Marisa Kirisame",
     "download": "downloads/marisa.zip",
-    "creationDate": "2026-04-27",
+    "character": "Marisa Kirisame",
     "gradStart": "#e0c46f",
-    "gradEnd": "#e7dccb"
+    "gradEnd": "#e7dccb",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/marisa.png",
+        "download": "downloads/marisa_v1.zip",
+        "creationDate": "2026-04-27",
+        "modifiedDate": "2026-04-27",
+        "assetVersion": 2
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/rumia.png",
     "name": "Rumia",
-    "version": "2",
-    "character": "Rumia",
     "download": "downloads/rumia.zip",
-    "creationDate": "2026-04-24",
+    "character": "Rumia",
     "gradStart": "#2b1a3a",
-    "gradEnd": "#a83a3a"
+    "gradEnd": "#a83a3a",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/rumia.png",
+        "download": "downloads/rumia_v1.zip",
+        "creationDate": "2026-04-24",
+        "modifiedDate": "2026-04-24",
+        "assetVersion": 2
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/cirno.png",
     "name": "Cirno",
-    "character": "Cirno",
     "download": "downloads/cirno.zip",
-    "creationDate": "2026-04-26",
+    "character": "Cirno",
     "gradStart": "#a3c4e0",
-    "gradEnd": "#e0f0f7"
+    "gradEnd": "#e0f0f7",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/cirno.png",
+        "download": "downloads/cirno_v1.zip",
+        "creationDate": "2026-04-26",
+        "modifiedDate": "2026-04-26",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/aya.png",
     "name": "Aya",
-    "character": "Aya Shameimaru",
     "download": "downloads/aya.zip",
-    "creationDate": "2026-04-28",
+    "character": "Aya Shameimaru",
     "gradStart": "#ff9494",
-    "gradEnd": "#f7dada"
+    "gradEnd": "#f7dada",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/aya.png",
+        "download": "downloads/aya_v1.zip",
+        "creationDate": "2026-04-28",
+        "modifiedDate": "2026-04-28",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/shion.png",
     "name": "Shion",
-    "character": "Shion Yorigami",
     "download": "downloads/shion.zip",
-    "creationDate": "2026-04-29",
+    "character": "Shion Yorigami",
     "gradStart": "#7f8fa6",
-    "gradEnd": "#d6dde6"
+    "gradEnd": "#d6dde6",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/shion.png",
+        "download": "downloads/shion_v1.zip",
+        "creationDate": "2026-04-29",
+        "modifiedDate": "2026-04-29",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/clownpiece.png",
     "name": "Clownpiece",
-    "character": "Clownpiece",
     "download": "downloads/clownpiece.zip",
-    "creationDate": "2026-04-30",
+    "character": "Clownpiece",
     "gradStart": "#e88a3a",
-    "gradEnd": "#f2e6d8"
+    "gradEnd": "#f2e6d8",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/clownpiece.png",
+        "download": "downloads/clownpiece_v1.zip",
+        "creationDate": "2026-04-30",
+        "modifiedDate": "2026-04-30",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-  "image": "images/fumos_padded/yuuka.png",
     "name": "Yuuka",
-    "character": "Yuuka Kazami",
     "download": "downloads/yuuka.zip",
-    "creationDate": "2026-05-01",
+    "character": "Yuuka Kazami",
     "gradStart": "#7ea883",
-    "gradEnd": "#e6d89a"
+    "gradEnd": "#e6d89a",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/yuuka.png",
+        "download": "downloads/yuuka_v1.zip",
+        "creationDate": "2026-05-01",
+        "modifiedDate": "2026-05-01",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/nitori.png",
     "name": "Nitori",
-    "character": "Nitori Kawashiro",
     "download": "downloads/nitori.zip",
-    "creationDate": "2026-05-03",
+    "character": "Nitori Kawashiro",
     "gradStart": "#5fa8a6",
-    "gradEnd": "#d7efe7"
+    "gradEnd": "#d7efe7",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/nitori.png",
+        "download": "downloads/nitori_v1.zip",
+        "creationDate": "2026-05-03",
+        "modifiedDate": "2026-05-03",
+        "assetVersion": 1
+      }
+    ]
   },
   {
-    "image": "images/fumos_padded/nazrin.png",
     "name": "Nazrin",
-    "character": "Nazrin",
     "download": "downloads/nazrin.zip",
-    "creationDate": "2026-05-08",
+    "character": "Nazrin",
     "gradStart": "#9a9a9a",
-    "gradEnd": "#e8d9a8"
+    "gradEnd": "#e8d9a8",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/nazrin.png",
+        "download": "downloads/nazrin_v1.zip",
+        "creationDate": "2026-05-08",
+        "modifiedDate": "2026-05-08",
+        "assetVersion": 1
+      }
+    ]
   }
 ]

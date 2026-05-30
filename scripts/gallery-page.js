@@ -6,6 +6,7 @@ import { createModeController } from "./modes.js";
 import {
     getArtworkDisplayName,
     getArtworkCreationDate,
+    getShortVariantName
 } from "./artworks.js";
 
 function createArtworkGridCard(item, index) {
@@ -14,7 +15,8 @@ function createArtworkGridCard(item, index) {
     frame.className = "panel art-card gallery-card";
     frame.dataset.index = index;
 
-    const displayName = getArtworkDisplayName(item);
+    const variantName = getShortVariantName(item.variantName);
+    const displayName = `${item.displayName} ${variantName}`;
     const imageUrl = item.image;
     const downloadUrl = item.download;
 
@@ -25,43 +27,48 @@ function createArtworkGridCard(item, index) {
 
         <img src="${imageUrl}" alt="${displayName}">
         <p class="art-card-name">${displayName}</p>
-        <p class="art-card-date">${formatArtworkDate(getArtworkCreationDate(item))}</p>
+        <p class="art-card-date">${formatArtworkDate(item.creationDate)}</p>
     `;
 
     return frame;
 }
 
-function highlightGridItem(index) {
+function highlightGridItems(indexes) {
     const scrollArea = document.querySelector(".gallery-scroll");
-
-    const target = document.querySelector(
-        `#all-artworks .art-card[data-index="${index}"]`
-    );
-
-    if (!target) return;
 
     document
         .querySelectorAll("#all-artworks .art-card")
         .forEach((card) => card.classList.remove("search-highlight"));
 
-    target.classList.add("search-highlight");
+    const targets = indexes
+        .map((index) =>
+            document.querySelector(`#all-artworks .art-card[data-index="${index}"]`)
+        )
+        .filter(Boolean);
+
+    targets.forEach((target) => {
+        target.classList.add("search-highlight");
+    });
+
+    const firstTarget = targets[0];
+    if (!firstTarget) return;
 
     if (scrollArea) {
         const scrollAreaRect = scrollArea.getBoundingClientRect();
-        const targetRect = target.getBoundingClientRect();
+        const targetRect = firstTarget.getBoundingClientRect();
 
         const offset =
             targetRect.top -
             scrollAreaRect.top -
             scrollArea.clientHeight / 2 +
-            target.clientHeight / 2;
+            firstTarget.clientHeight / 2;
 
         scrollArea.scrollTo({
             top: scrollArea.scrollTop + offset,
             behavior: "smooth",
         });
     } else {
-        target.scrollIntoView({
+        firstTarget.scrollIntoView({
             behavior: "smooth",
             block: "center",
         });
@@ -80,41 +87,40 @@ function renderArtworkGrid(data) {
 }
 
 async function initGalleryPage() {
-    const data = await loadArtworkData();
+    const { characters, artworks } = await loadArtworkData();
 
-    const gridData = data
+    const gridData = artworks
         .slice()
         .sort((a, b) =>
-            a.name.localeCompare(b.name, undefined, { sensitivity: "base" })
+            a.displayName.localeCompare(b.displayName, undefined, { sensitivity: "base" })
         );
 
     renderArtworkGrid(gridData);
 
     const galleryController = createGalleryController({
         root: document,
-        data,
+        data: characters,
     });
 
     const modeController = createModeController(document);
 
-createSearchController({
-    root: document,
-    data: gridData,
-    onResultSelect(index) {
-        if (modeController.isMultipleViewActive()) {
-            highlightGridItem(index);
-            return;
-        }
+    createSearchController({
+        root: document,
+        data: gridData,
+        onResultSelect(index, matchingIndexes) {
+            if (modeController.isMultipleViewActive()) {
+                highlightGridItems(matchingIndexes);
+                return;
+            }
 
-        const selectedItem = gridData[index];
+            const selectedItem = gridData[index];
 
-        const galleryIndex = data.findIndex(
-            (item) => item.name === selectedItem.name
-        );
-
-        galleryController.goToSlide(galleryIndex);
-    },
-});
+            galleryController.goToSlide(
+                selectedItem.characterIndex,
+                selectedItem.variantIndex
+            );
+        },
+    });
 }
 
 initGalleryPage();

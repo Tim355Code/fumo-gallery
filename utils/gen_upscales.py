@@ -1,19 +1,21 @@
 from pathlib import Path
 from PIL import Image
+import json
 import shutil
+import re
+import tempfile
 
-# Settings
-INPUT_DIR = Path("../images/fumos")
-OUTPUT_DIR = Path("../downloads")
+PROJECT_ROOT = Path("..")
+ARTWORKS_JSON = PROJECT_ROOT / "artworks.json"
+OUTPUT_DIR = PROJECT_ROOT / "downloads"
 
-IMAGE_EXTENSIONS = {".png"}
-
-# Scale factors to generate
 SCALES = [2, 4, 8]
 
 
-def is_image_file(path: Path) -> bool:
-    return path.is_file() and path.suffix.lower() in IMAGE_EXTENSIONS
+def slugify(value: str) -> str:
+    value = value.lower().strip()
+    value = re.sub(r"[^a-z0-9]+", "_", value)
+    return value.strip("_")
 
 
 def upscale_image(img: Image.Image, scale: int) -> Image.Image:
@@ -21,66 +23,120 @@ def upscale_image(img: Image.Image, scale: int) -> Image.Image:
     return img.resize(new_size, Image.Resampling.NEAREST)
 
 
+def save_scaled_images(source_path: Path, output_dir: Path, base_name: str) -> None:
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    with Image.open(source_path) as img:
+        img.save(output_dir / f"{base_name}_1x.png")
+
+        for scale in SCALES:
+            upscaled = upscale_image(img, scale)
+            upscaled.save(output_dir / f"{base_name}_{scale}x.png")
+
+
+def build_variant_folder(character, variant, root_dir: Path) -> Path | None:
+    character_slug = slugify(character["name"])
+    variant_name = variant.get("name", "V1")
+    variant_slug = slugify(variant_name)
+
+    image_path = PROJECT_ROOT / variant["image"].replace(
+        "images/fumos_padded/",
+        "images/fumos/"
+    )
+
+    if not image_path.exists():
+        print(f"Missing image, skipping: {image_path}")
+        return None
+
+    variant_dir = root_dir / character_slug / variant_slug
+    file_base_name = f"{character_slug}_{variant_slug}"
+
+    save_scaled_images(
+        source_path=image_path,
+        output_dir=variant_dir,
+        base_name=file_base_name,
+    )
+
+    return variant_dir
+
+
+def make_zip(zip_path: Path, source_dir: Path) -> None:
+    if zip_path.exists():
+        zip_path.unlink()
+
+    shutil.make_archive(
+        str(zip_path.with_suffix("")),
+        "zip",
+        root_dir=source_dir,
+        base_dir=".",
+    )
+
+
 def main() -> None:
-    if not INPUT_DIR.exists():
-        raise FileNotFoundError(f"Input directory does not exist: {INPUT_DIR}")
+    if not ARTWORKS_JSON.exists():
+        raise FileNotFoundError(f"Missing artworks.json: {ARTWORKS_JSON}")
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    files = [p for p in INPUT_DIR.iterdir() if is_image_file(p)]
+    with open(ARTWORKS_JSON, "r", encoding="utf-8") as file:
+        characters = json.load(file)
 
-    if not files:
-        print(f"No PNG files found in: {INPUT_DIR}")
-        return
+    with tempfile.TemporaryDirectory() as temp:
+        temp_root = Path(temp)
+        all_root = temp_root / "all"
 
-    created_dirs: list[Path] = []
+        for character in characters:
+            character_name = character["name"]
+            character_slug = slugify(character_name)
+            variants = character.get("variants", [])
 
-    for file_path in files:
-        sprite_name = file_path.stem
-        sprite_output_dir = OUTPUT_DIR / sprite_name
-        sprite_output_dir.mkdir(parents=True, exist_ok=True)
-        created_dirs.append(sprite_output_dir)
+            if not variants:
+                print(f"Skipping {character_name}: no variants")
+                continue
 
-        # Save original as 1x PNG
-        with Image.open(file_path) as img:
-            original_path = sprite_output_dir / f"{sprite_name}_1x.png"
-            img.save(original_path)
+            character["download"] = f"downloads/{character_slug}.zip"
 
-            for scale in SCALES:
-                upscaled = upscale_image(img, scale)
-                output_path = sprite_output_dir / f"{sprite_name}_{scale}x.png"
-                upscaled.save(output_path)
+            character_bundle_root = temp_root / "character_bundles" / character_slug
 
-        # Create individual zip for this sprite directory
-        zip_base = OUTPUT_DIR / sprite_name
-        shutil.make_archive(str(zip_base), "zip", root_dir=OUTPUT_DIR, base_dir=sprite_name)
+            for variant in variants:
+                variant_name = variant.get("name", "V1")
+                variant_slug = slugify(variant_name)
 
-        print(f"Processed and zipped: {file_path.name}")
+                variant["download"] = f"downloads/{character_slug}_{variant_slug}.zip"
 
-    # Create all.zip containing all sprite directories
-    all_temp_dir = OUTPUT_DIR / "_all_temp"
-    all_temp_dir.mkdir(parents=True, exist_ok=True)
+                built_variant_dir = build_variant_folder(
+                    character,
+                    variant,
+                    character_bundle_root,
+                )
 
-    try:
-        for sprite_dir in created_dirs:
-            shutil.copytree(sprite_dir, all_temp_dir / sprite_dir.name)
+                if not built_variant_dir:
+                    continue
 
-        shutil.make_archive(
-            str(OUTPUT_DIR / "all"),
-            "zip",
-            root_dir=all_temp_dir,
-            base_dir="."
-        )
+                # Copy into all.zip structure.
+                all_variant_dir = all_root / character_slug / variant_slug
+                shutil.copytree(built_variant_dir, all_variant_dir)
+
+                # Make individual variant zip.
+                individual_zip = OUTPUT_DIR / f"{character_slug}_{variant_slug}.zip"
+                make_zip(individual_zip, built_variant_dir)
+
+                print(f"Variant zipped: {individual_zip.name}")
+
+            # Make character bundle zip.
+            character_zip = OUTPUT_DIR / f"{character_slug}.zip"
+            make_zip(character_zip, character_bundle_root)
+
+            print(f"Character zipped: {character_zip.name}")
+
+        # Make all.zip.
+        make_zip(OUTPUT_DIR / "all.zip", all_root)
         print("Created all.zip")
-    finally:
-        if all_temp_dir.exists():
-            shutil.rmtree(all_temp_dir)
 
-    # Delete the unzipped sprite folders
-    for sprite_dir in created_dirs:
-        if sprite_dir.exists():
-            shutil.rmtree(sprite_dir)
+    with open(ARTWORKS_JSON, "w", encoding="utf-8") as file:
+        json.dump(characters, file, indent=2, ensure_ascii=False)
 
+    print("Updated artworks.json")
     print("Done.")
 
 
