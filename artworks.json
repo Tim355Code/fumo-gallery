@@ -7,9 +7,9 @@
     "gradEnd": "#f5e6d6",
     "variants": [
       {
-        "name": "V1",
-        "image": "images/fumos_padded/reimu.png",
-        "download": "downloads/reimu_v1.zip",
+        "name": "V1.5",
+        "image": "images/fumos_padded/reimu_v1_5.png",
+        "download": "downloads/reimu_v1_5.zip",
         "creationDate": "2025-08-08",
         "modifiedDate": "2025-08-08",
         "assetVersion": 2
@@ -25,7 +25,7 @@
     "variants": [
       {
         "name": "V1",
-        "image": "images/fumos_padded/chimata.png",
+        "image": "images/fumos_padded/chimata_v1.png",
         "download": "downloads/chimata_v1.zip",
         "creationDate": "2025-03-18",
         "modifiedDate": "2025-03-18",
@@ -41,9 +41,9 @@
     "gradEnd": "#ead9b8",
     "variants": [
       {
-        "name": "V1",
-        "image": "images/fumos_padded/yukari.png",
-        "download": "downloads/yukari_v1.zip",
+        "name": "V1.5",
+        "image": "images/fumos_padded/yukari_v1_5.png",
+        "download": "downloads/yukari_v1_5.zip",
         "creationDate": "2025-03-17",
         "modifiedDate": "2025-03-17",
         "assetVersion": 1
@@ -58,9 +58,9 @@
     "gradEnd": "#efe2c7",
     "variants": [
       {
-        "name": "V1",
-        "image": "images/fumos_padded/alice.png",
-        "download": "downloads/alice_v1.zip",
+        "name": "V1.5",
+        "image": "images/fumos_padded/alice_v1_5.png",
+        "download": "downloads/alice_v1_5.zip",
         "creationDate": "2025-12-11",
         "modifiedDate": "2025-12-11",
         "assetVersion": 2
@@ -75,9 +75,9 @@
     "gradEnd": "#d7d49c",
     "variants": [
       {
-        "name": "V1",
-        "image": "images/fumos_padded/meiling.png",
-        "download": "downloads/meiling_v1.zip",
+        "name": "V1.5",
+        "image": "images/fumos_padded/meiling_v1_5.png",
+        "download": "downloads/meiling_v1_5.zip",
         "creationDate": "2025-09-16",
         "modifiedDate": "2025-09-16",
         "assetVersion": 1
@@ -93,7 +93,7 @@
     "variants": [
       {
         "name": "V1",
-        "image": "images/fumos_padded/yuyuko.png",
+        "image": "images/fumos_padded/yuyuko_v1_5.png",
         "download": "downloads/yuyuko_v1.zip",
         "creationDate": "2025-08-19",
         "modifiedDate": "2025-08-19",
@@ -109,9 +109,9 @@
     "gradEnd": "#e2f3ec",
     "variants": [
       {
-        "name": "V1",
-        "image": "images/fumos_padded/sanae.png",
-        "download": "downloads/sanae_v1.zip",
+        "name": "V2",
+        "image": "images/fumos_padded/sanae_v2.png",
+        "download": "downloads/sanae_v2.zip",
         "creationDate": "2024-12-11",
         "modifiedDate": "2024-12-11",
         "assetVersion": 1
@@ -126,9 +126,9 @@
     "gradEnd": "#e3ece8",
     "variants": [
       {
-        "name": "V1",
-        "image": "images/fumos_padded/youmu.png",
-        "download": "downloads/youmu_v1.zip",
+        "name": "V1.5",
+        "image": "images/fumos_padded/youmu_v1_5.png",
+        "download": "downloads/youmu_v1_5.zip",
         "creationDate": "2024-12-10",
         "modifiedDate": "2024-12-10",
         "assetVersion": 1
@@ -144,7 +144,7 @@
     "variants": [
       {
         "name": "V1",
-        "image": "images/fumos_padded/mokou.png",
+        "image": "images/fumos_padded/mokou_v1.png",
         "download": "downloads/mokou_v1.zip",
         "creationDate": "2024-12-09",
         "modifiedDate": "2024-12-09",
@@ -161,7 +161,7 @@
     "variants": [
       {
         "name": "V1",
-        "image": "images/fumos_padded/okuu.png",
+        "image": "images/fumos_padded/okuu_v1.png",
         "download": "downloads/okuu_v1.zip",
         "creationDate": "2024-12-07",
         "modifiedDate": "2024-12-07",
@@ -177,9 +177,9 @@
     "gradEnd": "#d8c98f",
     "variants": [
       {
-        "name": "V1",
-        "image": "images/fumos_padded/suwako.png",
-        "download": "downloads/suwako_v1.zip",
+        "name": "V1.5",
+        "image": "images/fumos_padded/suwako_v1_5.png",
+        "download": "downloads/suwako_v1_5.zip",
         "creationDate": "2024-12-06",
         "modifiedDate": "2024-12-06",
         "assetVersion": 1
@@ -194,9 +194,9 @@
     "gradEnd": "#eef2f7",
     "variants": [
       {
-        "name": "V1",
-        "image": "images/fumos_padded/sakuya.png",
-        "download": "downloads/sakuya_v1.zip",
+        "name": "V1.5",
+        "image": "images/fumos_padded/sakuya_v1_5.png",
+        "download": "downloads/sakuya_v1_5.zip",
         "creationDate": "2024-12-05",
         "modifiedDate": "2024-12-05",
         "assetVersion": 1
@@ -212,7 +212,7 @@
     "variants": [
       {
         "name": "V1",
-        "image": "images/fumos_padded/remilia.png",
+        "image": "images/fumos_padded/remilia_v1_5.png",
         "download": "downloads/remilia_v1.zip",
         "creationDate": "2024-12-02",
         "modifiedDate": "2024-12-02",
@@ -229,7 +229,7 @@
     "variants": [
       {
         "name": "V1",
-        "image": "images/fumos_padded/flandre.png",
+        "image": "images/fumos_padded/flandre_v1.png",
         "download": "downloads/flandre_v1.zip",
         "creationDate": "2024-11-29",
         "modifiedDate": "2024-11-29",
@@ -246,7 +246,7 @@
     "variants": [
       {
         "name": "V1",
-        "image": "images/fumos_padded/satori.png",
+        "image": "images/fumos_padded/satori_v1.png",
         "download": "downloads/satori_v1.zip",
         "creationDate": "2024-12-01",
         "modifiedDate": "2024-12-01",
@@ -263,7 +263,7 @@
     "variants": [
       {
         "name": "V1",
-        "image": "images/fumos_padded/tewi.png",
+        "image": "images/fumos_padded/tewi_v1.png",
         "download": "downloads/tewi_v1.zip",
         "creationDate": "2024-11-30",
         "modifiedDate": "2024-11-30",
@@ -280,7 +280,7 @@
     "variants": [
       {
         "name": "V1",
-        "image": "images/fumos_padded/koishi.png",
+        "image": "images/fumos_padded/koishi_v1.png",
         "download": "downloads/koishi_v1.zip",
         "creationDate": "2024-11-30",
         "modifiedDate": "2024-11-30",
@@ -297,7 +297,7 @@
     "variants": [
       {
         "name": "V1",
-        "image": "images/fumos_padded/reisen.png",
+        "image": "images/fumos_padded/reisen_v1.png",
         "download": "downloads/reisen_v1.zip",
         "creationDate": "2024-11-29",
         "modifiedDate": "2024-11-29",
@@ -313,9 +313,9 @@
     "gradEnd": "#e7dccb",
     "variants": [
       {
-        "name": "V1",
-        "image": "images/fumos_padded/marisa.png",
-        "download": "downloads/marisa_v1.zip",
+        "name": "V1.5",
+        "image": "images/fumos_padded/marisa_v1_5.png",
+        "download": "downloads/marisa_v1_5.zip",
         "creationDate": "2026-04-27",
         "modifiedDate": "2026-04-27",
         "assetVersion": 2
@@ -331,7 +331,7 @@
     "variants": [
       {
         "name": "V1",
-        "image": "images/fumos_padded/rumia.png",
+        "image": "images/fumos_padded/rumia_v1.png",
         "download": "downloads/rumia_v1.zip",
         "creationDate": "2026-04-24",
         "modifiedDate": "2026-04-24",
@@ -347,9 +347,9 @@
     "gradEnd": "#e0f0f7",
     "variants": [
       {
-        "name": "V1",
-        "image": "images/fumos_padded/cirno.png",
-        "download": "downloads/cirno_v1.zip",
+        "name": "V1.5",
+        "image": "images/fumos_padded/cirno_v1_5.png",
+        "download": "downloads/cirno_v1_5.zip",
         "creationDate": "2026-04-26",
         "modifiedDate": "2026-04-26",
         "assetVersion": 1
@@ -365,7 +365,7 @@
     "variants": [
       {
         "name": "V1",
-        "image": "images/fumos_padded/aya.png",
+        "image": "images/fumos_padded/aya_v1.png",
         "download": "downloads/aya_v1.zip",
         "creationDate": "2026-04-28",
         "modifiedDate": "2026-04-28",
@@ -382,7 +382,7 @@
     "variants": [
       {
         "name": "V1",
-        "image": "images/fumos_padded/shion.png",
+        "image": "images/fumos_padded/shion_v1.png",
         "download": "downloads/shion_v1.zip",
         "creationDate": "2026-04-29",
         "modifiedDate": "2026-04-29",
@@ -399,7 +399,7 @@
     "variants": [
       {
         "name": "V1",
-        "image": "images/fumos_padded/clownpiece.png",
+        "image": "images/fumos_padded/clownpiece_v1.png",
         "download": "downloads/clownpiece_v1.zip",
         "creationDate": "2026-04-30",
         "modifiedDate": "2026-04-30",
@@ -416,7 +416,7 @@
     "variants": [
       {
         "name": "V1",
-        "image": "images/fumos_padded/yuuka.png",
+        "image": "images/fumos_padded/yuuka_v1.png",
         "download": "downloads/yuuka_v1.zip",
         "creationDate": "2026-05-01",
         "modifiedDate": "2026-05-01",
@@ -433,7 +433,7 @@
     "variants": [
       {
         "name": "V1",
-        "image": "images/fumos_padded/nitori.png",
+        "image": "images/fumos_padded/nitori_v1.png",
         "download": "downloads/nitori_v1.zip",
         "creationDate": "2026-05-03",
         "modifiedDate": "2026-05-03",
@@ -450,7 +450,7 @@
     "variants": [
       {
         "name": "V1",
-        "image": "images/fumos_padded/nazrin.png",
+        "image": "images/fumos_padded/nazrin_v1.png",
         "download": "downloads/nazrin_v1.zip",
         "creationDate": "2026-05-08",
         "modifiedDate": "2026-05-08",

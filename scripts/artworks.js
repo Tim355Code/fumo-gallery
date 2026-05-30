@@ -18,7 +18,7 @@ export function getArtworkAssetVersion(item) {
     return getDefaultVariant(item).assetVersion ?? 1;
 }
 
-export function getShortVariantName(variantName, maxLength = 3) {
+export function getShortVariantName(variantName, maxLength = 4) {
     if (!variantName) return "";
 
     if (variantName.length <= maxLength) {
