@@ -62,7 +62,7 @@
         "image": "images/fumos_padded/alice_v1_5.png",
         "download": "downloads/alice_v1_5.zip",
         "creationDate": "2025-12-11",
-        "modifiedDate": "2025-12-11",
+        "modifiedDate": "2026-04-24",
         "assetVersion": 2
       }
     ]
@@ -333,7 +333,7 @@
         "name": "V1",
         "image": "images/fumos_padded/rumia_v1.png",
         "download": "downloads/rumia_v1.zip",
-        "creationDate": "2026-04-24",
+        "creationDate": "2025-04-15",
         "modifiedDate": "2026-04-24",
         "assetVersion": 2
       }
@@ -350,9 +350,9 @@
         "name": "V1.5",
         "image": "images/fumos_padded/cirno_v1_5.png",
         "download": "downloads/cirno_v1_5.zip",
-        "creationDate": "2026-04-26",
+        "creationDate": "2024-11-28",
         "modifiedDate": "2026-04-26",
-        "assetVersion": 1
+        "assetVersion": 2
       }
     ]
   },
