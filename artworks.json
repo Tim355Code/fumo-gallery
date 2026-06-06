@@ -5,6 +5,7 @@
     "character": "Reimu Hakurei",
     "gradStart": "#d8a3a3",
     "gradEnd": "#f5e6d6",
+    "default": 0,
     "variants": [
       {
         "name": "V1.5",
@@ -13,6 +14,14 @@
         "creationDate": "2025-08-08",
         "modifiedDate": "2025-08-08",
         "assetVersion": 2
+      },
+      {
+        "name": "Lost Word",
+        "image": "images/fumos_padded/reimu_lost_word.png",
+        "download": "downloads/reimu_lost_word.zip",
+        "creationDate": "2026-06-06",
+        "modifiedDate": "2026-06-06",
+        "assetVersion": 1
       }
     ]
   },

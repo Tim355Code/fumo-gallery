@@ -129,7 +129,9 @@ def main():
             # Place image so its visual center lands on the canvas center
             x = round(target_center_x - visual_center_x)
 
-            # Bottom-align as before
+            # Prevent side clipping
+            x = max(0, min(x, max_width - width))
+
             y = max_height - height
 
             if "A" in img.mode:
