@@ -43,13 +43,7 @@ export async function loadArtworkData() {
 
     const characters = await response.json();
 
-    const artworks = flattenArtworkData(characters)
-        .sort((a, b) => {
-            const dateA = new Date(getVariantDate(a));
-            const dateB = new Date(getVariantDate(b));
-
-            return dateB - dateA;
-        });
+    const artworks = flattenArtworkData(characters);
 
     artworkData = {
         characters,

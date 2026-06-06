@@ -1,5 +1,13 @@
+export function getDefaultVariantIndex(item) {
+    const index = item.defaultVariant ?? item.default ?? 0;
+
+    if (!item.variants?.length) return 0;
+
+    return Math.max(0, Math.min(index, item.variants.length - 1));
+}
+
 export function getDefaultVariant(item) {
-    return item.variants?.[0] ?? item;
+    return item.variants?.[getDefaultVariantIndex(item)] ?? item;
 }
 
 export function getArtworkDisplayName(item) {

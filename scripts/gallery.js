@@ -1,4 +1,5 @@
 import { formatArtworkDate } from "./dates.js";
+import { getDefaultVariantIndex, getDefaultVariant } from "./artworks.js";
 
 const FALLBACK_GRAD_START = "#d9c6ff";
 const FALLBACK_GRAD_END = "#ffd6e7";
@@ -75,7 +76,8 @@ export function createGalleryController({ root, data }) {
     let targetStart = { ...currentStart };
     let targetEnd = { ...currentEnd };
     let lastTime = performance.now();
-    let currentVariantIndex = 0;
+
+    let currentVariantIndex = getDefaultVariantIndex(data[0] ?? {});
 
     function renderGradient() {
         gallery.style.background = `
@@ -98,8 +100,7 @@ export function createGalleryController({ root, data }) {
 
     function createGalleryItem(item) {
         const slide = document.createElement("div");
-
-        const defaultVariant = item.variants[0];
+        const defaultVariant = getDefaultVariant(item);
 
         slide.className = "gallery-item";
         slide.dataset.gradStart = item.gradStart || FALLBACK_GRAD_START;
@@ -139,9 +140,9 @@ export function createGalleryController({ root, data }) {
             variantOptions.appendChild(option);
         });
 
-        const activeVariant = variants[currentVariantIndex];
-        variantButton.textContent = activeVariant?.name ?? "V1";
+        const activeVariant = variants[currentVariantIndex] ?? getDefaultVariant(activeData);
 
+        variantButton.textContent = activeVariant?.name ?? "V1";
         variantSelect.classList.toggle("is-disabled", variants.length <= 1);
     }
 
@@ -162,20 +163,24 @@ export function createGalleryController({ root, data }) {
 
         const activeSlide = slides[currentIndex];
         const activeData = data[currentIndex];
-        const activeVariant = activeData.variants[currentVariantIndex] ?? activeData.variants[0];
+        const activeVariant =
+            activeData.variants?.[currentVariantIndex] ?? getDefaultVariant(activeData);
 
         targetStart = hexToRgb(activeSlide.dataset.gradStart || FALLBACK_GRAD_START);
         targetEnd = hexToRgb(activeSlide.dataset.gradEnd || FALLBACK_GRAD_END);
 
         const image = activeSlide.querySelector("img");
+
         if (image) {
             image.src = activeVariant.image;
             image.alt = `${activeData.name} ${activeVariant.name}`;
         }
 
         downloadButtons.forEach((button) => {
-            button.href = activeData.download;
-            button.download = activeData.download.split("/").pop();
+            const download = activeVariant.download ?? activeData.download;
+
+            button.href = download;
+            button.download = download.split("/").pop();
         });
 
         nameText.textContent = activeData.name;
@@ -187,20 +192,23 @@ export function createGalleryController({ root, data }) {
         renderVariantDropdown(activeData);
     }
 
-    function goToSlide(index, variantIndex = 0) {
+    function goToSlide(index, variantIndex = null) {
         if (!slides.length) return;
 
         currentIndex = Math.max(0, Math.min(index, slides.length - 1));
-        currentVariantIndex = variantIndex;
+
+        currentVariantIndex =
+            variantIndex ?? getDefaultVariantIndex(data[currentIndex]);
 
         updateGallery();
     }
 
-function nextSlide() {
+    function nextSlide() {
         if (!slides.length) return;
 
         currentIndex = (currentIndex + 1) % slides.length;
-        currentVariantIndex = 0;
+        currentVariantIndex = getDefaultVariantIndex(data[currentIndex]);
+
         updateGallery();
     }
 
@@ -208,7 +216,8 @@ function nextSlide() {
         if (!slides.length) return;
 
         currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        currentVariantIndex = 0;
+        currentVariantIndex = getDefaultVariantIndex(data[currentIndex]);
+
         updateGallery();
     }
 
@@ -268,6 +277,8 @@ function nextSlide() {
         if (!gallery || !track) return;
 
         buildGallery();
+
+        currentVariantIndex = getDefaultVariantIndex(data[0] ?? {});
 
         currentStart = hexToRgb(data[0]?.gradStart || FALLBACK_GRAD_START);
         currentEnd = hexToRgb(data[0]?.gradEnd || FALLBACK_GRAD_END);

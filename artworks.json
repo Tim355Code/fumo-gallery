@@ -345,14 +345,23 @@
     "character": "Cirno",
     "gradStart": "#a3c4e0",
     "gradEnd": "#e0f0f7",
+    "default": 0,
     "variants": [
       {
         "name": "V1.5",
         "image": "images/fumos_padded/cirno_v1_5.png",
         "download": "downloads/cirno_v1_5.zip",
         "creationDate": "2024-11-28",
-        "modifiedDate": "2026-04-26",
-        "assetVersion": 2
+        "modifiedDate": "2026-06-06",
+        "assetVersion": 3
+      },
+      {
+        "name": "Tanned",
+        "image": "images/fumos_padded/cirno_tanned.png",
+        "download": "downloads/cirno_tanned.zip",
+        "creationDate": "2026-06-06",
+        "modifiedDate": "2026-06-06",
+        "assetVersion": 1
       }
     ]
   },
