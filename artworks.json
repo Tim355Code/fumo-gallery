@@ -475,5 +475,22 @@
         "assetVersion": 1
       }
     ]
+  },
+  {
+    "name": "Seija",
+    "download": "downloads/seija.zip",
+    "character": "Seija Kijin",
+    "gradStart": "#6f4b8b",
+    "gradEnd": "#f2d5e8",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/seija_v1.png",
+        "download": "downloads/seija_v1.zip",
+        "creationDate": "2026-06-17",
+        "modifiedDate": "2026-06-17",
+        "assetVersion": 1
+      }
+    ]
   }
 ]

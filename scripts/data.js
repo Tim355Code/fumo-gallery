@@ -1,7 +1,27 @@
 let artworkData = null;
 
-function getVariantDate(variant) {
-    return variant.creationDate ?? variant.date;
+function getVariantModifiedDate(variant) {
+    return variant.modifiedDate ?? variant.creationDate ?? variant.date;
+}
+
+function getCharacterLatestModifiedDate(character) {
+    const timestamps = character.variants
+        ?.map(getVariantModifiedDate)
+        .filter(Boolean)
+        .map((date) => new Date(date).getTime()) ?? [];
+
+    return timestamps.length ? Math.max(...timestamps) : 0;
+}
+
+function sortCharactersByLatestModified(characters) {
+    return characters.slice().sort((a, b) => {
+        const dateDiff =
+            getCharacterLatestModifiedDate(b) - getCharacterLatestModifiedDate(a);
+
+        if (dateDiff !== 0) return dateDiff;
+
+        return a.name.localeCompare(b.name, undefined, { sensitivity: "base" });
+    });
 }
 
 export function flattenArtworkData(characters) {
@@ -41,8 +61,9 @@ export async function loadArtworkData() {
         throw new Error(`Could not load artworks.json: ${response.status}`);
     }
 
-    const characters = await response.json();
+    const rawCharacters = await response.json();
 
+    const characters = sortCharactersByLatestModified(rawCharacters);
     const artworks = flattenArtworkData(characters);
 
     artworkData = {
