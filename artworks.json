@@ -492,5 +492,22 @@
         "assetVersion": 1
       }
     ]
+  },
+  {
+    "name": "Renko",
+    "download": "downloads/usami_renko.zip",
+    "character": "Usami Renko",
+    "gradStart": "#51435f",
+    "gradEnd": "#e8d9b5",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/renko_v1.png",
+        "download": "downloads/usami_renko_v1.zip",
+        "creationDate": "2026-08-02",
+        "modifiedDate": "2026-08-02",
+        "assetVersion": 1
+      }
+    ]
   }
 ]
