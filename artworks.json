@@ -495,7 +495,7 @@
   },
   {
     "name": "Renko",
-    "download": "downloads/usami_renko.zip",
+    "download": "downloads/renko.zip",
     "character": "Usami Renko",
     "gradStart": "#51435f",
     "gradEnd": "#e8d9b5",
@@ -503,9 +503,26 @@
       {
         "name": "V1",
         "image": "images/fumos_padded/renko_v1.png",
-        "download": "downloads/usami_renko_v1.zip",
+        "download": "downloads/renko_v1.zip",
         "creationDate": "2026-08-02",
         "modifiedDate": "2026-08-02",
+        "assetVersion": 1
+      }
+    ]
+  },
+  {
+    "name": "Merry",
+    "download": "downloads/merry.zip",
+    "character": "Maribel Hearn",
+    "gradStart": "#ead9b8",
+    "gradEnd": "#b9a7c9",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/merry_v1.png",
+        "download": "downloads/merry_v1.zip",
+        "creationDate": "2026-08-12",
+        "modifiedDate": "2026-08-12",
         "assetVersion": 1
       }
     ]
