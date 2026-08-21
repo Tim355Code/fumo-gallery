@@ -49,20 +49,6 @@ function moveColorTowards(current, target, maxDelta) {
 }
 
 export function createGalleryController({ root, data }) {
-    const galleryData = data
-        .map((item, index) => ({ item, index }))
-        .sort((a, b) => {
-            const dateA = new Date(getDefaultVariant(a.item)?.modifiedDate);
-            const dateB = new Date(getDefaultVariant(b.item)?.modifiedDate);
-
-            if (dateB - dateA !== 0) {
-                return dateB - dateA;
-            }
-
-            return b.index - a.index;
-        })
-        .map(({ item }) => item);
-
     const gallery = root.querySelector("#gallery");
     const track = root.querySelector(".gallery-track");
     const prevButton = root.querySelector(".gallery-arrow.previous");
@@ -91,7 +77,7 @@ export function createGalleryController({ root, data }) {
     let targetEnd = { ...currentEnd };
     let lastTime = performance.now();
 
-    let currentVariantIndex = getDefaultVariantIndex(galleryData[0] ?? {});
+    let currentVariantIndex = getDefaultVariantIndex(data[0] ?? {});
 
     function renderGradient() {
         gallery.style.background = `
@@ -163,7 +149,7 @@ export function createGalleryController({ root, data }) {
     function buildGallery() {
         track.innerHTML = "";
 
-        galleryData.forEach((item) => {
+        data.forEach((item) => {
             track.appendChild(createGalleryItem(item));
         });
 
@@ -176,7 +162,7 @@ export function createGalleryController({ root, data }) {
         track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
         const activeSlide = slides[currentIndex];
-        const activeData = galleryData[currentIndex];
+        const activeData = data[currentIndex];
         const activeVariant =
             activeData.variants?.[currentVariantIndex] ?? getDefaultVariant(activeData);
 
@@ -210,7 +196,9 @@ export function createGalleryController({ root, data }) {
         if (!slides.length) return;
 
         currentIndex = Math.max(0, Math.min(index, slides.length - 1));
-        currentVariantIndex = variantIndex ?? getDefaultVariantIndex(galleryData[currentIndex]);
+
+        currentVariantIndex =
+            variantIndex ?? getDefaultVariantIndex(data[currentIndex]);
 
         updateGallery();
     }
@@ -219,7 +207,7 @@ export function createGalleryController({ root, data }) {
         if (!slides.length) return;
 
         currentIndex = (currentIndex + 1) % slides.length;
-        currentVariantIndex = getDefaultVariantIndex(galleryData[currentIndex]);
+        currentVariantIndex = getDefaultVariantIndex(data[currentIndex]);
 
         updateGallery();
     }
@@ -228,7 +216,7 @@ export function createGalleryController({ root, data }) {
         if (!slides.length) return;
 
         currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        currentVariantIndex = getDefaultVariantIndex(galleryData[currentIndex]);
+        currentVariantIndex = getDefaultVariantIndex(data[currentIndex]);
 
         updateGallery();
     }
@@ -290,10 +278,10 @@ export function createGalleryController({ root, data }) {
 
         buildGallery();
 
-        currentVariantIndex = getDefaultVariantIndex(galleryData[0] ?? {});
+        currentVariantIndex = getDefaultVariantIndex(data[0] ?? {});
 
-        currentStart = hexToRgb(galleryData[0]?.gradStart || FALLBACK_GRAD_START);
-        currentEnd = hexToRgb(galleryData[0]?.gradEnd || FALLBACK_GRAD_END);
+        currentStart = hexToRgb(data[0]?.gradStart || FALLBACK_GRAD_START);
+        currentEnd = hexToRgb(data[0]?.gradEnd || FALLBACK_GRAD_END);
 
         renderGradient();
         requestAnimationFrame(animateGradient);

@@ -5,23 +5,30 @@ function getVariantModifiedDate(variant) {
 }
 
 function getCharacterLatestModifiedDate(character) {
-    const timestamps = character.variants
-        ?.map(getVariantModifiedDate)
-        .filter(Boolean)
-        .map((date) => new Date(date).getTime()) ?? [];
+    const timestamps =
+        character.variants
+            ?.map(getVariantModifiedDate)
+            .filter(Boolean)
+            .map((date) => new Date(date).getTime()) ?? [];
 
     return timestamps.length ? Math.max(...timestamps) : 0;
 }
 
 function sortCharactersByLatestModified(characters) {
-    return characters.slice().sort((a, b) => {
-        const dateDiff =
-            getCharacterLatestModifiedDate(b) - getCharacterLatestModifiedDate(a);
+    return characters
+        .map((character, index) => ({ character, index }))
+        .sort((a, b) => {
+            const dateDiff =
+                getCharacterLatestModifiedDate(b.character) -
+                getCharacterLatestModifiedDate(a.character);
 
-        if (dateDiff !== 0) return dateDiff;
+            if (dateDiff !== 0) {
+                return dateDiff;
+            }
 
-        return a.name.localeCompare(b.name, undefined, { sensitivity: "base" });
-    });
+            return b.index - a.index;
+        })
+        .map(({ character }) => character);
 }
 
 export function flattenArtworkData(characters) {
