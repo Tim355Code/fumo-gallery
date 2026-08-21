@@ -543,5 +543,22 @@
         "assetVersion": 2
       }
     ]
+  },
+  {
+    "name": "Suika",
+    "download": "downloads/suika.zip",
+    "character": "Suika Ibuki",
+    "gradStart": "#d89463",
+    "gradEnd": "#a88bb5",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/suika_v1.png",
+        "download": "downloads/suika_v1.zip",
+        "creationDate": "2026-08-21",
+        "modifiedDate": "2026-08-21",
+        "assetVersion": 1
+      }
+    ]
   }
 ]

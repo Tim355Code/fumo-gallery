@@ -81,14 +81,19 @@ async function renderLatestArtworks() {
     const { artworks } = await loadArtworkData();
 
     const latestArtworks = artworks
-        .slice()
+        .map((item, index) => ({ item, index }))
         .sort((a, b) => {
-            const dateA = new Date(getArtworkModifiedDate(a));
-            const dateB = new Date(getArtworkModifiedDate(b));
+            const dateA = new Date(getArtworkModifiedDate(a.item));
+            const dateB = new Date(getArtworkModifiedDate(b.item));
 
-            return dateB - dateA;
+            if (dateB - dateA !== 0) {
+                return dateB - dateA;
+            }
+
+            return b.index - a.index;
         })
-        .slice(0, 4);
+        .slice(0, 4)
+        .map(({ item }) => item);
 
     container.innerHTML = "";
 
