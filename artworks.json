@@ -526,5 +526,22 @@
         "assetVersion": 2
       }
     ]
+  },
+  {
+    "name": "Junko",
+    "download": "downloads/junko.zip",
+    "character": "Junko",
+    "gradStart": "#e3c45f",
+    "gradEnd": "#b94f4f",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/junko_v1.png",
+        "download": "downloads/junko_v1.zip",
+        "creationDate": "2026-08-21",
+        "modifiedDate": "2026-08-21",
+        "assetVersion": 1
+      }
+    ]
   }
 ]
