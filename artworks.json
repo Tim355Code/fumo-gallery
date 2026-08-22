@@ -560,5 +560,22 @@
         "assetVersion": 1
       }
     ]
+  },
+  {
+    "name": "Hina",
+    "download": "downloads/hina.zip",
+    "character": "Hina Kagiyama",
+    "gradStart": "#6f9f7a",
+    "gradEnd": "#d98b8b",
+    "variants": [
+      {
+        "name": "V1",
+        "image": "images/fumos_padded/hina_v1.png",
+        "download": "downloads/hina_v1.zip",
+        "creationDate": "2026-08-22",
+        "modifiedDate": "2026-08-22",
+        "assetVersion": 1
+      }
+    ]
   }
 ]
